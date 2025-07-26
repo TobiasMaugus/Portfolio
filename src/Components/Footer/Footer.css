@@ -1,0 +1,47 @@
+.borders-custom-h{
+    border-color: #90A1B9;
+    display: flex;
+    align-items: center;    /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+    text-align: center;
+}   
+.a-custom-h{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.equal-width-h{
+  width: 7%; /* ou qualquer valor que se encaixe no seu layout */
+}
+
+.icon-wrapper {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  display: flex;
+}
+.icon-wrapper:hover .icon {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.icon-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 35px; /* altura interna, sem colar no ícone */
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background-color: #ff9900;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.icon-wrapper:hover::after {
+  width: 80%; /* ou 100% se quiser até a borda */
+}
