@@ -1,23 +1,52 @@
-import type { ReactNode } from 'react';
 import { colors } from '../../../colors/colors';
+import { Folder as FolderIcon, FileJson, FileCode } from 'lucide-react';
+import Folder from './Folder';
 
-type BodyHelloProps = {
-  children?: ReactNode;
-};
-
-export default function BodyAbout({ children }: BodyHelloProps) {
+export default function BodyAbout() {
   return (
     <div
       style={{
         width: '95%',
         height: '80%',
-        backgroundColor: '#ffffff',
+        backgroundColor: colors.primary,
         borderColor: colors.second,
         borderLeftWidth: '1px',
-        borderRightWidth: '1px'
+        borderRightWidth: '1px',
+        display: 'flex',
+        color: colors.second
       }}
     >
-      {children}
+      <div
+        style={{
+          width: '17.25%',
+          height: '100%',
+          backgroundColor: colors.primary,
+          borderColor: colors.second,
+          borderRightWidth: '1px',
+          padding: '10px',
+          fontFamily: "'Inter', sans-serif"
+        }}
+      >
+        <Folder
+        icon={<FolderIcon size={16} />}
+        label="about-me"
+        iconColor="#F5A623"
+        subItems={[
+          { label: 'bio.txt' },
+          { label: 'skills.json', icon: <FileJson size={14} /> },
+        ]}
+      />
+
+      <Folder
+        icon={<FolderIcon size={16} />}
+        label="projects"
+        iconColor="#00D1B2"
+        subItems={[
+          { label: 'site.jsx', icon: <FileCode size={14} /> },
+          { label: 'readme.md' },
+        ]}
+      />
+      </div>
     </div>
   );
 }
