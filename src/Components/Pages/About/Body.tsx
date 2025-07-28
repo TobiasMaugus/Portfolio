@@ -55,19 +55,19 @@ export default function BodyAbout() {
 
         <Folder
           icon={<FolderIcon size={18} />}
-          label="projects"
+          label="skills"
           iconColor="#00D1B2"
           selected={selectedFile}
           subItems={[
             {
+              label: "technologies.json",
+              onClick: () => setSelectedFile("technologies.json"),
+              icon: <VscJson size={18} />,
+            },
+            {
               label: "languages.cpp",
               onClick: () => setSelectedFile("languages.cpp"),
               icon: <SiCplusplus size={18} />,
-            },
-            {
-              label: "skills.json",
-              onClick: () => setSelectedFile("skills.json"),
-              icon: <VscJson size={18} />,
             },
           ]}
         />
@@ -107,7 +107,7 @@ export default function BodyAbout() {
 
               {/* Botão de fechar */}
               <Link
-                to="/noFile"
+                to="/no-file"
                 style={{
                   marginLeft: "8px",
                   display: "flex",
@@ -181,7 +181,7 @@ export default function BodyAbout() {
           </div>
         )}
 
-        {selectedFile === "skills.json" && (
+        {selectedFile === "technologies.json" && (
           <div
             style={{ height: "100%", display: "flex", flexDirection: "column" }}
           >
@@ -204,11 +204,11 @@ export default function BodyAbout() {
               }}
             >
               <VscJson size={18} />
-              <span style={{ userSelect: "none" }}>skills.json</span>
+              <span style={{ userSelect: "none" }}>technologies.json</span>
 
               {/* Botão de fechar */}
               <Link
-                to="/"
+                to="/no-file"
                 style={{
                   marginLeft: "8px",
                   display: "flex",
@@ -330,7 +330,7 @@ export default function BodyAbout() {
 
               {/* Botão de fechar */}
               <Link
-                to="/"
+                to="/no-file"
                 style={{
                   marginLeft: "8px",
                   display: "flex",
@@ -419,7 +419,7 @@ export default function BodyAbout() {
 
               {/* Botão de fechar */}
               <Link
-                to="/"
+                to="/no-file"
                 style={{
                   marginLeft: "8px",
                   display: "flex",

@@ -1,0 +1,9 @@
+.checkbox-custom {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid #90A1B9;
+  background-color: #1e1e1e;
+  accent-color: #ff9900; /* Define a cor do check nativo */
+  cursor: pointer;
+}
