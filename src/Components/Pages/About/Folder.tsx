@@ -3,17 +3,20 @@ import { ChevronRight, ChevronDown, FileText } from 'lucide-react';
 import { colors } from '../../../colors/colors';
 
 interface SubItem {
+  onClick?: () => void;
   icon?: React.ReactNode;
   label: string;
 }
 
 interface FolderProps {
-  icon: React.ReactElement;
+  icon: React.ReactNode;
   label: string;
+  iconColor: string;
   iconSize?: number;
-  iconColor?: string;
-  subItems?: SubItem[];
+  subItems: SubItem[];
+  selected?: string | null;
 }
+
 
 export default function Folder({
   icon,
@@ -21,6 +24,7 @@ export default function Folder({
   iconSize = 16,
   iconColor = colors.second,
   subItems = [],
+  selected = '',
 }: FolderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -56,24 +60,39 @@ export default function Folder({
             }}
           />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {subItems.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 200,
-                  fontStyle: 'thin',
-                  color: colors.second,
-                  fontSize: '14px',
-                }}
-              >
-                {item.icon ?? <FileText size={14} />}
-                <span>{item.label}</span>
-              </div>
-            ))}
+            {subItems.map((item, index) => {
+              const isSelected = selected === item.label;
+              return (
+                <div
+                  key={index}
+                  onClick={item.onClick}
+                  className="cursor-pointer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '4px 6px',
+                    borderRadius: '4px',
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 200,
+                    fontStyle: 'thin',
+                    color: colors.second,
+                    fontSize: '14px',
+                    backgroundColor: isSelected ? '#2c2c2c' : 'transparent',
+                    transition: 'background-color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) e.currentTarget.style.backgroundColor = '#1e1e1e';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  {item.icon || <FileText size={14} color={colors.second} />}
+                  {item.label}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

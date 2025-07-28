@@ -41,7 +41,7 @@
 /* Animações no hover */
 .text-wrapper:hover {
   color: #ffffff;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Linha animada */
@@ -60,3 +60,9 @@
 .text-wrapper:hover::after {
   width: 90%; /* ou 100% se quiser cobrir tudo */
 }
+
+.active-link {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+

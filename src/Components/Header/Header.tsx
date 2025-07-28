@@ -1,6 +1,6 @@
 import {colors} from '../../colors/colors.ts';
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -24,13 +24,19 @@ export default function Header() {
           <div className="px-12 py-2 border-r border-custom font-light">tobias-maugus</div>
             <ul className="hidden md:flex flex-grow">
               <li className="border-r border-custom equal-width">
-                <Link to="/" className="text-wrapper px-5 py-2">_hello</Link>
+                <NavLink to="/" className={({ isActive }) =>
+                  `text-wrapper px-5 py-2 ${isActive ? 'active-link' : ''}`
+                }>_hello</NavLink>
               </li>
               <li className="border-r border-custom equal-width">
-                <Link to="/about-me" className="text-wrapper px-5 py-2">_about-me</Link>
+                <NavLink to="/about-me" className={({ isActive }) =>
+                  `text-wrapper px-5 py-2 ${isActive ? 'active-link' : ''}`
+                }>_about-me</NavLink>
               </li>
               <li className="border-r border-custom equal-width">
-                <Link to="/projects" className="text-wrapper px-5 py-2">_projects</Link>
+                <NavLink to="/projects" className={({ isActive }) =>
+                  `text-wrapper px-5 py-2 ${isActive ? 'active-link' : ''}`
+                }>_projects</NavLink>
               </li>
             </ul>
             <ul className="hidden md:flex">
