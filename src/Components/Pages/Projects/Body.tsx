@@ -2,6 +2,7 @@ import { colors } from "../../../colors/colors";
 import { Folder as FolderIcon, FileCode } from "lucide-react";
 import { useState } from "react";
 import FilterFolder from "./FilterFolder";
+import "./BodyStyles.css";
 
 export default function BodyProjects() {
   const [checkedTechs, setCheckedTechs] = useState<string[]>([]);
@@ -21,6 +22,7 @@ export default function BodyProjects() {
         borderLeftWidth: "1px",
         borderRightWidth: "1px",
       }}
+      className="body-projects"
     >
       <div
         style={{

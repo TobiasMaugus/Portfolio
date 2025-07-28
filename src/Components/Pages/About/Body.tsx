@@ -493,6 +493,7 @@ export default function BodyAbout() {
               backgroundColor: "#1e1e1e",
               overflow: "hidden",
             }}
+            className="body-no-file"
           >
             {/* Marca d'água */}
             <div
