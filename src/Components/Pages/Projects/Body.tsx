@@ -3,6 +3,8 @@ import { Folder as FolderIcon, FileCode } from "lucide-react";
 import { useState } from "react";
 import FilterFolder from "./FilterFolder";
 import "./BodyStyles.css";
+import Card from "./Card";
+import Img1 from "../../../assets/CPlusPlus1.jpg";
 
 export default function BodyProjects() {
   const [checkedTechs, setCheckedTechs] = useState<string[]>([]);
@@ -21,6 +23,9 @@ export default function BodyProjects() {
         borderColor: colors.second,
         borderLeftWidth: "1px",
         borderRightWidth: "1px",
+        flexDirection: "row",
+        display: "flex",
+        justifyContent: "flex-start",
       }}
       className="body-projects"
     >
@@ -115,6 +120,67 @@ export default function BodyProjects() {
               onChange: handleTechChange,
             },
           ]}
+        />
+      </div>
+      <div
+        style={{
+          flex: 1, // ocupa o restante do espaço
+          padding: "20px",
+          overflowY: "auto",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          alignContent: "flex-start",
+        }}
+        className="scroll"
+      >
+        <Card
+          image={Img1}
+          title="Project 1"
+          description="Descrição do projeto."
+          link=""
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
+        />
+        <Card
+          image=""
+          title="Project 1"
+          description="Descrição do projeto."
+          link="https://github.com/example/project"
         />
       </div>
     </div>
