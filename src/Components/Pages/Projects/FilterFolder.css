@@ -1,9 +1,49 @@
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-style: thin;
+  font-size: 14px;
+  color: #90A1B9;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.checkbox-wrapper:hover {
+  background-color: #2c2c2c;
+}
+
+.checkbox-wrapper.checked {
+  background-color: #2c2c2c;
+}
+
+.checkbox-hidden {
+  display: none;
+}
+
 .checkbox-custom {
   width: 14px;
   height: 14px;
   border-radius: 4px;
   border: 1px solid #90A1B9;
   background-color: #1e1e1e;
-  accent-color: #ff9900; /* Define a cor do check nativo */
-  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox-hidden:checked + .checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid #ff9900;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }

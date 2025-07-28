@@ -34,26 +34,82 @@ export default function BodyProjects() {
         }}
       >
         <FilterFolder
-          icon={<FolderIcon size={16} />}
+          icon={<FolderIcon size={18} />}
           label="Backend"
-          iconColor="#ff6600"
+          iconColor="#14e0beff"
           subItems={[
             {
               label: "Java",
-              icon: <FileCode size={14} />,
+              icon: <FileCode size={18} />,
               checked: checkedTechs.includes("Java"),
               onChange: handleTechChange,
             },
             {
               label: "Go",
-              icon: <FileCode size={14} />,
+              icon: <FileCode size={18} />,
               checked: checkedTechs.includes("Go"),
               onChange: handleTechChange,
             },
             {
               label: "Python",
-              icon: <FileCode size={14} />,
+              icon: <FileCode size={18} />,
               checked: checkedTechs.includes("Python"),
+              onChange: handleTechChange,
+            },
+            {
+              label: "Node.js",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("Node.js"),
+              onChange: handleTechChange,
+            },
+          ]}
+        />
+        <FilterFolder
+          icon={<FolderIcon size={18} />}
+          label="Frontend"
+          iconColor="#d7fc05ff"
+          subItems={[
+            {
+              label: "HTML",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("HTML"),
+              onChange: handleTechChange,
+            },
+            {
+              label: "CSS",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("CSS"),
+              onChange: handleTechChange,
+            },
+            {
+              label: "JavaScript",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("JavaScript"),
+              onChange: handleTechChange,
+            },
+            {
+              label: "TypeScript",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("TypeScript"),
+              onChange: handleTechChange,
+            },
+          ]}
+        />
+        <FilterFolder
+          icon={<FolderIcon size={18} />}
+          label="Others"
+          iconColor="#e0147aff"
+          subItems={[
+            {
+              label: "C++",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("C++"),
+              onChange: handleTechChange,
+            },
+            {
+              label: "Haskell",
+              icon: <FileCode size={18} />,
+              checked: checkedTechs.includes("Haskell"),
               onChange: handleTechChange,
             },
           ]}

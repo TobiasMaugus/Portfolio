@@ -5,7 +5,6 @@ import { useState } from "react";
 import "./BodyStyles.css";
 import { SiCplusplus, SiPhp, SiMarkdown } from "react-icons/si";
 import { IoCloseSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
 import { VscJson } from "react-icons/vsc";
 
 export default function BodyAbout() {
@@ -103,22 +102,21 @@ export default function BodyAbout() {
               }}
             >
               <SiMarkdown size={18} />
-              <span style={{ userSelect: "none" }}>bio.md</span>
+              <span>bio.md</span>
 
-              {/* Botão de fechar */}
-              <Link
-                to="/no-file"
+              <span
+                onClick={() => setSelectedFile("no-file")}
                 style={{
                   marginLeft: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#d4d4d4",
-                  textDecoration: "none",
+                  cursor: "pointer",
                 }}
               >
                 <IoCloseSharp size={14} />
-              </Link>
+              </span>
             </div>
 
             {/* Conteúdo do arquivo */}
@@ -204,22 +202,21 @@ export default function BodyAbout() {
               }}
             >
               <VscJson size={18} />
-              <span style={{ userSelect: "none" }}>technologies.json</span>
+              <span>technologies.json</span>
 
-              {/* Botão de fechar */}
-              <Link
-                to="/no-file"
+              <span
+                onClick={() => setSelectedFile("no-file")}
                 style={{
                   marginLeft: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#d4d4d4",
-                  textDecoration: "none",
+                  cursor: "pointer",
                 }}
               >
                 <IoCloseSharp size={14} />
-              </Link>
+              </span>
             </div>
 
             {/* Conteúdo do arquivo JSON */}
@@ -326,22 +323,20 @@ export default function BodyAbout() {
               }}
             >
               <SiCplusplus size={18} />
-              <span style={{ userSelect: "none" }}>languages.cpp</span>
-
-              {/* Botão de fechar */}
-              <Link
-                to="/no-file"
+              <span>languages.cpp</span>
+              <span
+                onClick={() => setSelectedFile("no-file")}
                 style={{
                   marginLeft: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#d4d4d4",
-                  textDecoration: "none",
+                  cursor: "pointer",
                 }}
               >
                 <IoCloseSharp size={14} />
-              </Link>
+              </span>
             </div>
 
             {/* Conteúdo do arquivo C++ */}
@@ -415,22 +410,22 @@ export default function BodyAbout() {
               }}
             >
               <SiPhp size={18} />
-              <span style={{ userSelect: "none" }}>hobbies.php</span>
+              <span>hobbies.php</span>
 
               {/* Botão de fechar */}
-              <Link
-                to="/no-file"
+              <span
+                onClick={() => setSelectedFile("no-file")}
                 style={{
                   marginLeft: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#d4d4d4",
-                  textDecoration: "none",
+                  cursor: "pointer",
                 }}
               >
                 <IoCloseSharp size={14} />
-              </Link>
+              </span>
             </div>
 
             {/* Conteúdo do arquivo PHP */}
@@ -484,6 +479,48 @@ export default function BodyAbout() {
               <span style={{ color: "#569cd6" }}>print_r</span>
               ($myHobbies-&gt;list());
             </div>
+          </div>
+        )}
+        {selectedFile === "no-file" && (
+          <div
+            style={{
+              position: "relative",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "'Fira Code', 'Courier New', monospace",
+              backgroundColor: "#1e1e1e",
+              overflow: "hidden",
+            }}
+          >
+            {/* Marca d'água */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                opacity: 0.05, // bem translúcido
+                fontSize: "200px",
+                zIndex: 0,
+                color: "#ffffff",
+              }}
+            >
+              <FolderIcon size={200} />
+            </div>
+
+            {/* Texto principal */}
+            <span
+              style={{
+                fontSize: "18px",
+                color: "#d4d4d4",
+                textAlign: "center",
+                zIndex: 1,
+              }}
+            >
+              No file selected. Select a file from the left sidebar.
+            </span>
           </div>
         )}
       </div>

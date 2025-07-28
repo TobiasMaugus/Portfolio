@@ -62,28 +62,15 @@ export default function FilterFolder({
             {subItems.map((item, index) => (
               <label
                 key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "4px 6px",
-                  borderRadius: "4px",
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 200,
-                  fontStyle: "thin",
-                  color: colors.second,
-                  fontSize: "14px",
-                  backgroundColor: item.checked ? "#2c2c2c" : "transparent",
-                  transition: "background-color 0.2s ease",
-                  cursor: "pointer",
-                }}
+                className={`checkbox-wrapper ${item.checked ? "checked" : ""}`}
               >
                 <input
                   type="checkbox"
                   checked={item.checked}
                   onChange={(e) => item.onChange(item.label, e.target.checked)}
-                  className="checkbox-custom"
+                  className="checkbox-hidden"
                 />
+                <span className="checkbox-custom" />
                 {item.icon || <div style={{ width: "14px" }} />}
                 {item.label}
               </label>
