@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import { colors } from "../../../colors/colors";
+import { colors, light_colors } from "../../../colors/colors";
 import "./FilterFolder.css";
+import { useAppContext } from "../../../contexts/AppContext";
 
 interface FilterSubItem {
   label: string;
@@ -26,6 +27,8 @@ export default function FilterFolder({
   subItems,
 }: FilterFolderProps) {
   const [isOpen, setIsOpen] = useState(true);
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
 
   return (
     <div>
@@ -37,7 +40,7 @@ export default function FilterFolder({
           alignItems: "center",
           cursor: "pointer",
           gap: "8px",
-          color: colors.second,
+          color: themeColors.second,
           fontSize: "14px",
           padding: "4px 0",
         }}
@@ -53,7 +56,7 @@ export default function FilterFolder({
           <div
             style={{
               width: "10px",
-              borderLeft: `1px solid ${colors.second}`,
+              borderLeft: `1px solid ${themeColors.second}`,
               marginLeft: "9px",
               marginRight: "5px",
             }}

@@ -1,14 +1,17 @@
-import { colors } from "../../../colors/colors";
+import { colors, light_colors } from "../../../colors/colors";
 import "./BodyStyles.css";
+import { useAppContext } from "../../../contexts/AppContext";
 
 export default function BodyHello() {
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
   return (
     <div
       style={{
         width: "95%",
         height: "80%",
-        backgroundColor: colors.primary,
-        borderColor: colors.second,
+        backgroundColor: themeColors.primary,
+        borderColor: themeColors.second,
         borderLeftWidth: "1px",
         borderRightWidth: "1px",
         borderStyle: "solid",

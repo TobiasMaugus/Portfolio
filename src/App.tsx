@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BodyHello from "./Components/Pages/Hello/Body";
 import BodyAbout from "./Components/Pages/About/Body";
 import BodyProjects from "./Components/Pages/Projects/Body";
+import BodyContact from "./Components/Pages/ContactMe/Body";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<BodyHello />} />
           <Route path="/about-me" element={<BodyAbout />} />
           <Route path="/projects" element={<BodyProjects />} />
+          <Route path="/contact-me" element={<BodyContact />} />
         </Routes>
         <Footer />
       </Bg>

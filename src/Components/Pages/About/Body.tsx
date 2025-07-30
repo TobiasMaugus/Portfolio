@@ -1,4 +1,4 @@
-import { colors } from "../../../colors/colors";
+import { colors, light_colors } from "../../../colors/colors";
 import { Folder as FolderIcon } from "lucide-react";
 import Folder from "./Folder";
 import { useState } from "react";
@@ -6,28 +6,31 @@ import "./BodyStyles.css";
 import { SiCplusplus, SiPhp, SiMarkdown } from "react-icons/si";
 import { IoCloseSharp } from "react-icons/io5";
 import { VscJson } from "react-icons/vsc";
+import { useAppContext } from "../../../contexts/AppContext";
 
 export default function BodyAbout() {
   const [selectedFile, setSelectedFile] = useState<string>("bio.md");
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
   return (
     <div
       style={{
         width: "95%",
         height: "80%",
-        backgroundColor: colors.primary,
-        borderColor: colors.second,
+        backgroundColor: themeColors.primary,
+        borderColor: themeColors.second,
         borderLeftWidth: "1px",
         borderRightWidth: "1px",
         display: "flex",
-        color: colors.second,
+        color: themeColors.second,
       }}
     >
       <div
         style={{
           width: "20.4%",
           height: "100%",
-          backgroundColor: colors.primary,
-          borderColor: colors.second,
+          backgroundColor: themeColors.primary,
+          borderColor: themeColors.second,
           borderRightWidth: "1px",
           padding: "10px",
           fontFamily: "'Inter', sans-serif",
@@ -76,7 +79,7 @@ export default function BodyAbout() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: colors.primary,
+          backgroundColor: themeColors.primary,
         }}
       >
         {selectedFile === "bio.md" && (
