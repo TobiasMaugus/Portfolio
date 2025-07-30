@@ -1,13 +1,23 @@
-import { colors } from "../../../colors/colors";
+import { colors, light_colors } from "../../../colors/colors";
 import { Folder as FolderIcon, FileCode } from "lucide-react";
 import { useState } from "react";
 import FilterFolder from "./FilterFolder";
 import "./BodyStyles.css";
 import Card from "./Card";
-import Img1 from "../../../assets/CPlusPlus1.jpg";
+import ImgCpp from "../../../assets/CPlusPlus1.jpg";
+import ImgGraph from "../../../assets/graphs.png";
+import ImgAnimes from "../../../assets/animes.png";
+import ImgIalg from "../../../assets/ialg.png";
+import ImgLaravel from "../../../assets/laravel.png";
+import Imgmobile from "../../../assets/mobile.png";
+import ImgPyhton from "../../../assets/python.jpg";
+
+import { useAppContext } from "../../../contexts/AppContext";
 
 export default function BodyProjects() {
   const [checkedTechs, setCheckedTechs] = useState<string[]>([]);
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
 
   const handleTechChange = (label: string, isChecked: boolean) => {
     setCheckedTechs((prev) =>
@@ -19,8 +29,8 @@ export default function BodyProjects() {
       style={{
         width: "95%",
         height: "80%",
-        backgroundColor: colors.primary,
-        borderColor: colors.second,
+        backgroundColor: themeColors.primary,
+        borderColor: themeColors.second,
         borderLeftWidth: "1px",
         borderRightWidth: "1px",
         flexDirection: "row",
@@ -33,8 +43,8 @@ export default function BodyProjects() {
         style={{
           width: "17.25%",
           height: "100%",
-          backgroundColor: colors.primary,
-          borderColor: colors.second,
+          backgroundColor: themeColors.primary,
+          borderColor: themeColors.second,
           borderRightWidth: "1px",
           padding: "10px",
           fontFamily: "'Inter', sans-serif",
@@ -135,51 +145,46 @@ export default function BodyProjects() {
         className="scroll"
       >
         <Card
-          image={Img1}
-          title="Project 1"
-          description="Descrição do projeto."
+          image={ImgCpp}
+          title="Data Structures"
+          description="Project for the discipline of Data Structures and Algorithms made in C++. Uses Sequence Sets made from scratch."
           link=""
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
+          image={ImgGraph}
+          title="Graphs"
+          description="Graph Theory project made in Python for academic purposes. 
+          It's a heuristic for a variation of MCARP."
+          link="https://github.com/TobiasMaugus/Grafos2"
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
+          image={ImgIalg}
+          title="Uni Introduction"
+          description="It's a very simple project made in C++ for the discipline of Algorithms Introduction."
+          link="https://github.com/TobiasMaugus/ProjetoFinalIALG"
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
+          image={Imgmobile}
+          title="Mobile App"
+          description="An MVP of Mobile App made in 2022 for motorcicle deliverys."
+          link="https://github.com/TobiasMaugus/mobile2022.git"
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
+          image={ImgLaravel}
+          title="Laravel"
+          description="One of the first CRUD's I've made(2022). It uses PHP with Laravel."
+          link="https://github.com/TobiasMaugus/laravelzin.git"
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
+          image={ImgAnimes}
+          title="First Site"
+          description="First Site I've made myself and did the deploy(2021). Unfortunately the API was hosted in a site that no longer exists."
+          link="https://reactweb1.vercel.app/"
         />
         <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
-          link="https://github.com/example/project"
-        />
-        <Card
-          image=""
-          title="Project 1"
-          description="Descrição do projeto."
+          image={ImgPyhton}
+          title="Problems"
+          description="Series of Python Problems made in 2021 for academic purposes. It has some DNA problems, math model problems and ORM to model some DB's."
           link="https://github.com/example/project"
         />
       </div>
