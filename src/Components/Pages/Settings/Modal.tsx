@@ -1,9 +1,11 @@
 import { useAppContext } from "../../../contexts/AppContext";
 import { colors, light_colors } from "../../../colors/colors";
+import { languages } from "../../../languages/languages";
 
 export default function SettingsModal({ onClose }: { onClose: () => void }) {
   const { theme, toggleTheme, language, setLanguage } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   return (
     <div className="fixed inset-0 bg-black/50 bg-opacity-50 z-50 flex items-center justify-center">
@@ -17,7 +19,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
           fontWeight: 200,
         }}
       >
-        <h2 className="text-lg mb-4">Settings</h2>
+        <h2 className="text-lg mb-4">{l.settings}</h2>
 
         {/* Theme Switch */}
         <div className="flex items-center justify-between mb-4">
