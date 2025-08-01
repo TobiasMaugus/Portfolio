@@ -188,12 +188,11 @@ export default function BodyContact() {
           <span style={{ color: "#ecc48d" }}>"tobiasmaugus705@gmail.com"</span>,
           {"\n  "}
           <span style={{ color: "#82aaff" }}>name</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{name || "..."}"</span>,{"\n  "}
+          <span style={{ color: "#ecc48d" }}>"{name || ""}"</span>,{"\n  "}
           <span style={{ color: "#82aaff" }}>email</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{email || "..."}"</span>,{"\n  "}
+          <span style={{ color: "#ecc48d" }}>"{email || ""}"</span>,{"\n  "}
           <span style={{ color: "#82aaff" }}>message</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{message || "..."}"</span>,
-          {"\n  "}
+          <span style={{ color: "#ecc48d" }}>"{message || ""}"</span>,{"\n  "}
           <span style={{ color: "#82aaff" }}>date</span>:{" "}
           <span style={{ color: "#ecc48d" }}>
             "{new Date().toDateString()}"

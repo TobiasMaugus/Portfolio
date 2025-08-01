@@ -1,3 +1,6 @@
+import { useAppContext } from "../../../contexts/AppContext";
+import { colors, light_colors } from "../../../colors/colors";
+
 interface ProjectCardProps {
   image: string;
   title: string;
@@ -11,14 +14,16 @@ export default function Card({
   description,
   link,
 }: ProjectCardProps) {
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
   return (
     <div
       style={{
-        backgroundColor: "#0b1120",
+        backgroundColor: themeColors.cardBackground,
         borderRadius: "12px",
         overflow: "hidden",
         fontFamily: "'Fira Code', monospace",
-        color: "#d4d4d4",
+        color: themeColors.cardText,
         width: "300px",
         boxShadow: "0 0 12px rgba(0,0,0,0.2)",
       }}
@@ -28,11 +33,13 @@ export default function Card({
         style={{
           padding: "12px 16px",
           fontSize: "14px",
-          color: "#7aa2f7",
+          color: themeColors.cardTitle,
         }}
       >
-        <span style={{ fontWeight: "bold", color: "#7aa2f7" }}>{title}</span>{" "}
-        <span style={{ color: "#6c6c6c" }}>// _project</span>
+        <span style={{ fontWeight: "bold", color: themeColors.cardTitle }}>
+          {title}
+        </span>{" "}
+        <span style={{ color: themeColors.cardSubTitle }}>// _project</span>
       </div>
 
       {/* Imagem */}
@@ -51,7 +58,7 @@ export default function Card({
         <p
           style={{
             fontSize: "14px",
-            color: "#cbd5e1",
+            color: themeColors.cardText,
             marginBottom: "16px",
           }}
         >
@@ -65,8 +72,8 @@ export default function Card({
           rel="noopener noreferrer"
           style={{
             display: "inline-block",
-            backgroundColor: "#1e293b",
-            color: "#f1f5f9",
+            backgroundColor: themeColors.cardButtonBg,
+            color: themeColors.cardButtonText,
             padding: "6px 14px",
             borderRadius: "6px",
             fontSize: "13px",

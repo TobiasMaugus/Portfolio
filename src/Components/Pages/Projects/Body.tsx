@@ -53,7 +53,7 @@ export default function BodyProjects() {
         <FilterFolder
           icon={<FolderIcon size={18} />}
           label="Backend"
-          iconColor="#14e0beff"
+          iconColor={themeColors.folder1}
           subItems={[
             {
               label: "Java",
@@ -84,7 +84,7 @@ export default function BodyProjects() {
         <FilterFolder
           icon={<FolderIcon size={18} />}
           label="Frontend"
-          iconColor="#d7fc05ff"
+          iconColor={themeColors.folder2}
           subItems={[
             {
               label: "HTML",
@@ -115,7 +115,7 @@ export default function BodyProjects() {
         <FilterFolder
           icon={<FolderIcon size={18} />}
           label="Others"
-          iconColor="#e0147aff"
+          iconColor={themeColors.folder3}
           subItems={[
             {
               label: "C++",

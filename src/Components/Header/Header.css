@@ -1,5 +1,5 @@
 .borders-custom{
-    border-color: #90A1B9;
+    border-color:var(--second-color);
     display: flex;
     align-items: center;    /* Alinha verticalmente */
     justify-content: center; /* Alinha horizontalmente */
@@ -33,14 +33,14 @@
   width: 100%;
   height: 100%;
   font-size: 1rem;
-  color: #90A1B9;
+  color: var(--second-color);
   transition: all 0.3s ease;
    white-space: nowrap; 
 }
 
 /* Animações no hover */
 .text-wrapper:hover {
-  color: #ffffff;
+  color: var(--white-hover-color);
   transform: scale(1.1);
 }
 
@@ -53,7 +53,7 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background-color: #ff9900;
+  background-color: var(--accent-color);
   transition: width 0.3s ease;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .active-link {
-  color: #ffffff;
+  color: var(--white-hover-color);
   transform: scale(1.1);
 }
 

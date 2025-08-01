@@ -39,7 +39,7 @@ export default function BodyAbout() {
         <Folder
           icon={<FolderIcon size={18} />}
           label="about-me"
-          iconColor="#F5A623"
+          iconColor={themeColors.folder4}
           selected={selectedFile}
           subItems={[
             {
@@ -58,7 +58,7 @@ export default function BodyAbout() {
         <Folder
           icon={<FolderIcon size={18} />}
           label="skills"
-          iconColor="#00D1B2"
+          iconColor={themeColors.folder5}
           selected={selectedFile}
           subItems={[
             {
@@ -94,7 +94,7 @@ export default function BodyAbout() {
                 width: "fit-content",
                 maxWidth: "100%",
                 height: "32px",
-                backgroundColor: "#1e1e1e",
+                backgroundColor: themeColors.scrollBg,
                 borderRight: "1px solid #333",
                 borderBottom: "1px solid #333",
                 padding: "0 10px",
@@ -127,7 +127,7 @@ export default function BodyAbout() {
               style={{
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
-                backgroundColor: "#1e1e1e",
+                backgroundColor: themeColors.scrollBg,
                 color: "#d4d4d4",
                 height: "100%",
                 overflowY: "auto",
@@ -194,7 +194,7 @@ export default function BodyAbout() {
                 width: "fit-content",
                 maxWidth: "100%",
                 height: "32px",
-                backgroundColor: "#1e1e1e",
+                backgroundColor: themeColors.scrollBg,
                 borderRight: "1px solid #333",
                 borderBottom: "1px solid #333",
                 padding: "0 10px",
@@ -228,7 +228,7 @@ export default function BodyAbout() {
               style={{
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
-                backgroundColor: "#1e1e1e",
+                backgroundColor: themeColors.scrollBg,
                 color: "#d4d4d4",
                 height: "100%",
                 overflowY: "auto",
@@ -257,14 +257,14 @@ export default function BodyAbout() {
               <span style={{ color: "#ce9178" }}>"CSS"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"SQL"</span>
+              <span style={{ color: "#ce9178" }}>"Java"</span>
               <br />
               &nbsp;&nbsp;],
               <br />
               &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"frameworks"</span>
               : [<br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Node.js"</span>,
+              <span style={{ color: "#ce9178" }}>"Next.js"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
               <span style={{ color: "#ce9178" }}>"React"</span>,
@@ -276,7 +276,7 @@ export default function BodyAbout() {
               <br />
               &nbsp;&nbsp;],
               <br />
-              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"database"</span>:
+              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"databases"</span>:
               [<br />
               &nbsp;&nbsp;&nbsp;&nbsp;
               <span style={{ color: "#ce9178" }}>"PostgreSQL"</span>,<br />
@@ -284,7 +284,7 @@ export default function BodyAbout() {
               <span style={{ color: "#ce9178" }}>"MySQL"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"SQLite"</span>
+              <span style={{ color: "#ce9178" }}>"MongoDB"</span>
               <br />
               &nbsp;&nbsp;],
               <br />
@@ -294,7 +294,7 @@ export default function BodyAbout() {
               <span style={{ color: "#ce9178" }}>"Git"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"VS Code"</span>
+              <span style={{ color: "#ce9178" }}>"Docker"</span>
               <br />
               &nbsp;&nbsp;]
               <br />

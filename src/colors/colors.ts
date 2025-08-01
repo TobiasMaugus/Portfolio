@@ -1,11 +1,45 @@
 export const colors = {
   primary: '#314158dc',
   bg: '#020618',
-  second: '#90A1B9'
+  second: '#90A1B9',
+  accent: '#ff9900',
+  whiteHover: '#ffffff',
+  cardBackground: "#0b1120",
+  cardText: "#cbd5e1",
+  cardTitle: "#7aa2f7",
+  cardSubTitle: "#6c6c6c",
+  cardButtonBg: "#1e293b",
+  cardButtonText: "#f1f5f9",
+  folder1: "#14e0beff",
+  folder2: "#d7fc05ff",
+  folder3: "#f700ffad",
+  folder4: "#ff7b00ff",
+  folder5:"#14e02fff",
+  folderHover:"#2c2c2c",
+  scrollBg:"#1e1e1e",
+  scrollBar: "#3c3c3c",
+  scrollHover: "#5a5a5a"
 };
 
 export const light_colors = {
   primary: '#ffffff', 
   bg: '#f0f4f8',
-  second: '#314158'
+  second: '#314158',
+  accent: '#7100a5ff',
+  whiteHover: '#000000',
+  cardBackground: "#0944d8ff",
+  cardText: "#000511ff",
+  cardTitle: "#ee8f00ff",
+  cardSubTitle: "#be0000ff",
+  cardButtonBg: "#c90000ff",
+  cardButtonText: "#e7d000ff",
+  folder1: "#14e0beff",
+  folder2: "#d7fc05ff",
+  folder3: "#e0147aff",
+  folder4: "#e0147aff",
+  folder5:"#e0147aff",
+  folderHover:"#e00d0dff",
+  scrollBg:"#31005fff",
+  scrollBar: "#8a0101ff",
+  scrollHover: "#0059ffff"
 };

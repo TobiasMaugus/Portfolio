@@ -8,18 +8,18 @@
   font-weight: 200;
   font-style: thin;
   font-size: 14px;
-  color: #90A1B9;
+  color: var(--second-color);
   background-color: transparent;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
 
 .checkbox-wrapper:hover {
-  background-color: #2c2c2c;
+  background-color: var(--folder-hover);
 }
 
 .checkbox-wrapper.checked {
-  background-color: #2c2c2c;
+  background-color: var(--folder-hover);
 }
 
 .checkbox-hidden {
@@ -30,8 +30,8 @@
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  border: 1px solid #90A1B9;
-  background-color: #1e1e1e;
+  border: 1px solid var(--second-color);
+  background-color: var(--scroll-bg);
   display: inline-block;
   position: relative;
 }
@@ -43,7 +43,7 @@
   top: 0px;
   width: 4px;
   height: 8px;
-  border: solid #ff9900;
+  border: solid var(--accent-color);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
