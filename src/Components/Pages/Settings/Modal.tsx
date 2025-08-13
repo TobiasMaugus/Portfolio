@@ -50,7 +50,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Language Select */}
-        <div className="mb-4 flex flex-col items-center">
+        {/* <div className="mb-4 flex flex-col items-center">
           <label className="block mb-1">Language:</label>
           <div className="relative inline-block w-40">
             <select
@@ -70,7 +70,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
               <option value="es">Español</option>
             </select>
           </div>
-        </div>
+        </div> */}
 
         <button
           onClick={onClose}
