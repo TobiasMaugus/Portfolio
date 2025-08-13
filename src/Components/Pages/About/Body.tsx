@@ -12,6 +12,7 @@ export default function BodyAbout() {
   const [selectedFile, setSelectedFile] = useState<string>("bio.md");
   const { theme } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+
   return (
     <div
       style={{
@@ -95,12 +96,12 @@ export default function BodyAbout() {
                 maxWidth: "100%",
                 height: "32px",
                 backgroundColor: themeColors.scrollBg,
-                borderRight: "1px solid #333",
-                borderBottom: "1px solid #333",
+                borderRight: `1px solid ${themeColors.syntaxBorder}`,
+                borderBottom: `1px solid ${themeColors.syntaxBorder}`,
                 padding: "0 10px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 fontSize: "13px",
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 gap: "8px", // espaçamento entre ícone e texto
               }}
             >
@@ -114,7 +115,7 @@ export default function BodyAbout() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#d4d4d4",
+                  color: themeColors.syntaxDefault,
                   cursor: "pointer",
                 }}
               >
@@ -128,7 +129,7 @@ export default function BodyAbout() {
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 backgroundColor: themeColors.scrollBg,
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 height: "100%",
                 overflowY: "auto",
                 whiteSpace: "pre-wrap",
@@ -137,31 +138,42 @@ export default function BodyAbout() {
               }}
             >
               <div>
-                <span style={{ color: "#569cd6" }}>
+                <span style={{ color: themeColors.syntaxKeyword }}>
                   ## Hello, I'm Tobias Maugus!
                 </span>
                 {"\n\n"}
                 <p>
                   Developer with a technical degree in Information Technology
                   from the{" "}
-                  <span style={{ color: "#dcdcaa" }}>
+                  <span style={{ color: themeColors.syntaxFunction }}>
                     Federal Center for Technological Education of Minas Gerais
                     (CEFET-MG)
                   </span>{" "}
                   and practical experience in programming with various
                   languages, including{" "}
-                  <span style={{ color: "#ce9178" }}>Python</span>,{" "}
-                  <span style={{ color: "#ce9178" }}>C++</span>,{" "}
-                  <span style={{ color: "#ce9178" }}>
+                  <span style={{ color: themeColors.syntaxString }}>
+                    Python
+                  </span>
+                  , <span style={{ color: themeColors.syntaxString }}>C++</span>
+                  ,{" "}
+                  <span style={{ color: themeColors.syntaxString }}>
                     JavaScript frameworks
                   </span>{" "}
-                  (<span style={{ color: "#4ec9b0" }}>NodeJS</span>,{" "}
-                  <span style={{ color: "#4ec9b0" }}>React</span>,{" "}
-                  <span style={{ color: "#4ec9b0" }}>React Native</span>),{" "}
-                  <span style={{ color: "#ce9178" }}>TypeScript</span>{" "}
-                  (Express), <span style={{ color: "#ce9178" }}>HTML</span>,{" "}
-                  <span style={{ color: "#ce9178" }}>CSS</span> and{" "}
-                  <span style={{ color: "#ce9178" }}>SQL</span>.
+                  (<span style={{ color: themeColors.syntaxType }}>NodeJS</span>
+                  , <span style={{ color: themeColors.syntaxType }}>React</span>
+                  ,{" "}
+                  <span style={{ color: themeColors.syntaxType }}>
+                    React Native
+                  </span>
+                  ),{" "}
+                  <span style={{ color: themeColors.syntaxString }}>
+                    TypeScript
+                  </span>{" "}
+                  (Express),{" "}
+                  <span style={{ color: themeColors.syntaxString }}>HTML</span>,{" "}
+                  <span style={{ color: themeColors.syntaxString }}>CSS</span>{" "}
+                  and{" "}
+                  <span style={{ color: themeColors.syntaxString }}>SQL</span>.
                 </p>
                 <p>
                   During my internship, I taught basic computer courses,
@@ -169,9 +181,11 @@ export default function BodyAbout() {
                 </p>
                 <p>
                   I am currently pursuing a degree in{" "}
-                  <span style={{ color: "#dcdcaa" }}>Computer Science</span> at
-                  the{" "}
-                  <span style={{ color: "#dcdcaa" }}>
+                  <span style={{ color: themeColors.syntaxFunction }}>
+                    Computer Science
+                  </span>{" "}
+                  at the{" "}
+                  <span style={{ color: themeColors.syntaxFunction }}>
                     Federal University of Lavras (UFLA)
                   </span>{" "}
                   and seeking new opportunities to apply and expand my knowledge
@@ -195,12 +209,12 @@ export default function BodyAbout() {
                 maxWidth: "100%",
                 height: "32px",
                 backgroundColor: themeColors.scrollBg,
-                borderRight: "1px solid #333",
-                borderBottom: "1px solid #333",
+                borderRight: `1px solid ${themeColors.syntaxBorder}`,
+                borderBottom: `1px solid ${themeColors.syntaxBorder}`,
                 padding: "0 10px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 fontSize: "13px",
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 gap: "8px",
               }}
             >
@@ -214,7 +228,7 @@ export default function BodyAbout() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#d4d4d4",
+                  color: themeColors.syntaxDefault,
                   cursor: "pointer",
                 }}
               >
@@ -229,7 +243,7 @@ export default function BodyAbout() {
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 backgroundColor: themeColors.scrollBg,
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 height: "100%",
                 overflowY: "auto",
                 whiteSpace: "pre-wrap",
@@ -238,63 +252,87 @@ export default function BodyAbout() {
               }}
             >
               {"{\n"}
-              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"languages"</span>:
-              [<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Python"</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"C++"</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"JavaScript"</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"TypeScript"</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"HTML"</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"CSS"</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Java"</span>
-              <br />
-              &nbsp;&nbsp;],
-              <br />
-              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"frameworks"</span>
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxVariable }}>
+                "languages"
+              </span>
               : [<br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Next.js"</span>,
+              <span style={{ color: themeColors.syntaxString }}>"Python"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"React"</span>,
+              <span style={{ color: themeColors.syntaxString }}>"C++"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"React Native"</span>,<br />
+              <span style={{ color: themeColors.syntaxString }}>
+                "JavaScript"
+              </span>
+              ,<br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Express"</span>
+              <span style={{ color: themeColors.syntaxString }}>
+                "TypeScript"
+              </span>
+              ,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"HTML"</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"CSS"</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"Java"</span>
               <br />
               &nbsp;&nbsp;],
               <br />
-              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"databases"</span>:
-              [<br />
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxVariable }}>
+                "frameworks"
+              </span>
+              : [<br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"PostgreSQL"</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"MySQL"</span>,
+              <span style={{ color: themeColors.syntaxString }}>"Next.js"</span>
+              ,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"MongoDB"</span>
+              <span style={{ color: themeColors.syntaxString }}>"React"</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                "React Native"
+              </span>
+              ,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"Express"</span>
               <br />
               &nbsp;&nbsp;],
               <br />
-              &nbsp;&nbsp;<span style={{ color: "#9cdcfe" }}>"tools"</span>: [
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxVariable }}>
+                "databases"
+              </span>
+              : [<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                "PostgreSQL"
+              </span>
+              ,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"MySQL"</span>,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Git"</span>,
+              <span style={{ color: themeColors.syntaxString }}>"MongoDB"</span>
+              <br />
+              &nbsp;&nbsp;],
+              <br />
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxVariable }}>"tools"</span>
+              : [
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>"Docker"</span>
+              <span style={{ color: themeColors.syntaxString }}>"Git"</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>"Docker"</span>
               <br />
               &nbsp;&nbsp;]
               <br />
@@ -315,13 +353,13 @@ export default function BodyAbout() {
                 width: "fit-content",
                 maxWidth: "100%",
                 height: "32px",
-                backgroundColor: "#1e1e1e",
-                borderRight: "1px solid #333",
-                borderBottom: "1px solid #333",
+                backgroundColor: themeColors.syntaxBackground,
+                borderRight: `1px solid ${themeColors.syntaxBorder}`,
+                borderBottom: `1px solid ${themeColors.syntaxBorder}`,
                 padding: "0 10px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 fontSize: "13px",
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 gap: "8px",
               }}
             >
@@ -334,7 +372,7 @@ export default function BodyAbout() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#d4d4d4",
+                  color: themeColors.syntaxDefault,
                   cursor: "pointer",
                 }}
               >
@@ -347,8 +385,8 @@ export default function BodyAbout() {
               style={{
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
-                backgroundColor: "#1e1e1e",
-                color: "#d4d4d4",
+                backgroundColor: themeColors.syntaxBackground,
+                color: themeColors.syntaxDefault,
                 height: "100%",
                 overflowY: "auto",
                 whiteSpace: "pre-wrap",
@@ -356,35 +394,53 @@ export default function BodyAbout() {
                 lineHeight: "1.5",
               }}
             >
-              <span style={{ color: "#6a9955" }}>// Language Proficiency</span>
+              <span style={{ color: themeColors.syntaxComment }}>
+                // Language Proficiency
+              </span>
               <br />
-              <span style={{ color: "#569cd6" }}>#include</span>{" "}
-              <span style={{ color: "#ce9178" }}>&lt;iostream&gt;</span>
+              <span style={{ color: themeColors.syntaxKeyword }}>
+                #include
+              </span>{" "}
+              <span style={{ color: themeColors.syntaxString }}>
+                &lt;iostream&gt;
+              </span>
               <br />
-              <span style={{ color: "#569cd6" }}>using</span>{" "}
-              <span style={{ color: "#9cdcfe" }}>namespace</span> std;
+              <span style={{ color: themeColors.syntaxKeyword }}>
+                using
+              </span>{" "}
+              <span style={{ color: themeColors.syntaxVariable }}>
+                namespace
+              </span>{" "}
+              std;
               <br />
               <br />
-              <span style={{ color: "#569cd6" }}>int</span>{" "}
-              <span style={{ color: "#dcdcaa" }}>main</span>() &#123;
+              <span style={{ color: themeColors.syntaxKeyword }}>int</span>{" "}
+              <span style={{ color: themeColors.syntaxFunction }}>main</span>()
+              &#123;
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
-              <span style={{ color: "#ce9178" }}>
+              <span style={{ color: themeColors.syntaxString }}>
                 "Native: Portuguese"
               </span>{" "}
               &lt;&lt; endl;
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
-              <span style={{ color: "#ce9178" }}>"Fluent: English"</span>{" "}
+              <span style={{ color: themeColors.syntaxString }}>
+                "Fluent: English"
+              </span>{" "}
               &lt;&lt; endl;
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
-              <span style={{ color: "#ce9178" }}>
+              <span style={{ color: themeColors.syntaxString }}>
                 "Intermediate: Spanish"
               </span>{" "}
               &lt;&lt; endl;
               <br />
-              &nbsp;&nbsp;<span style={{ color: "#569cd6" }}>return</span> 0;
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxKeyword }}>
+                return
+              </span>{" "}
+              0;
               <br />
               &#125;
             </div>
@@ -402,13 +458,13 @@ export default function BodyAbout() {
                 width: "fit-content",
                 maxWidth: "100%",
                 height: "32px",
-                backgroundColor: "#1e1e1e",
-                borderRight: "1px solid #333",
-                borderBottom: "1px solid #333",
+                backgroundColor: themeColors.syntaxBackground,
+                borderRight: `1px solid ${themeColors.syntaxBorder}`,
+                borderBottom: `1px solid ${themeColors.syntaxBorder}`,
                 padding: "0 10px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
                 fontSize: "13px",
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 gap: "8px",
               }}
             >
@@ -423,7 +479,7 @@ export default function BodyAbout() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#d4d4d4",
+                  color: themeColors.syntaxDefault,
                   cursor: "pointer",
                 }}
               >
@@ -436,8 +492,8 @@ export default function BodyAbout() {
               style={{
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",
-                backgroundColor: "#1e1e1e",
-                color: "#d4d4d4",
+                backgroundColor: themeColors.syntaxBackground,
+                color: themeColors.syntaxDefault,
                 height: "100%",
                 overflowY: "auto",
                 whiteSpace: "pre-wrap",
@@ -445,28 +501,44 @@ export default function BodyAbout() {
                 lineHeight: "1.5",
               }}
             >
-              <span style={{ color: "#569cd6" }}>&lt;?php</span>
+              <span style={{ color: themeColors.syntaxKeyword }}>&lt;?php</span>
               <br />
-              <span style={{ color: "#569cd6" }}>class</span>{" "}
-              <span style={{ color: "#4ec9b0" }}>Hobbies</span> &#123;
+              <span style={{ color: themeColors.syntaxKeyword }}>
+                class
+              </span>{" "}
+              <span style={{ color: themeColors.syntaxType }}>Hobbies</span>{" "}
+              &#123;
               <br />
-              &nbsp;&nbsp;<span style={{ color: "#569cd6" }}>public</span>{" "}
-              <span style={{ color: "#569cd6" }}>function</span>{" "}
-              <span style={{ color: "#dcdcaa" }}>list</span>() &#123;
+              &nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxKeyword }}>
+                public
+              </span>{" "}
+              <span style={{ color: themeColors.syntaxKeyword }}>function</span>{" "}
+              <span style={{ color: themeColors.syntaxFunction }}>list</span>()
+              &#123;
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#569cd6" }}>return</span> [<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>'Math'</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>'Gaming'</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>'Watching Movies'</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>'Listening to Music'</span>,
+              <span style={{ color: themeColors.syntaxKeyword }}>return</span> [
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: "#ce9178" }}>
+              <span style={{ color: themeColors.syntaxString }}>'Math'</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>'Gaming'</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                'Watching Movies'
+              </span>
+              ,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                'Listening to Music'
+              </span>
+              ,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
                 'Coding Personal Projects'
               </span>
               <br />
@@ -476,10 +548,13 @@ export default function BodyAbout() {
               <br />
               &#125;
               <br />
-              <span style={{ color: "#569cd6" }}>$myHobbies</span> ={" "}
-              <span style={{ color: "#569cd6" }}>new</span> Hobbies();
+              <span style={{ color: themeColors.syntaxVariable }}>
+                $myHobbies
+              </span>{" "}
+              = <span style={{ color: themeColors.syntaxKeyword }}>new</span>{" "}
+              Hobbies();
               <br />
-              <span style={{ color: "#569cd6" }}>print_r</span>
+              <span style={{ color: themeColors.syntaxKeyword }}>print_r</span>
               ($myHobbies-&gt;list());
             </div>
           </div>
@@ -493,7 +568,7 @@ export default function BodyAbout() {
               alignItems: "center",
               justifyContent: "center",
               fontFamily: "'Fira Code', 'Courier New', monospace",
-              backgroundColor: "#1e1e1e",
+              backgroundColor: themeColors.syntaxBackground,
               overflow: "hidden",
             }}
             className="body-no-file"
@@ -508,7 +583,7 @@ export default function BodyAbout() {
                 opacity: 0.05, // bem translúcido
                 fontSize: "200px",
                 zIndex: 0,
-                color: "#ffffff",
+                color: themeColors.whiteHover,
               }}
             >
               <FolderIcon size={200} />
@@ -518,7 +593,7 @@ export default function BodyAbout() {
             <span
               style={{
                 fontSize: "18px",
-                color: "#d4d4d4",
+                color: themeColors.syntaxDefault,
                 textAlign: "center",
                 zIndex: 1,
               }}

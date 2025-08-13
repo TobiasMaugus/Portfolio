@@ -3,15 +3,15 @@
 }
 
 .scroll::-webkit-scrollbar-track {
-  background: #1e1e1e; /* mesma cor do fundo */
+  background: var(--scroll-bg); /* mesma cor do fundo */
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background-color: #3c3c3c; /* cor da "barra" */
+  background-color: var(--scroll-bar); /* cor da "barra" */
   border-radius: 4px;
-  border: 2px solid #1e1e1e; /* cria um espaço como padding */
+  border: 2px solid var(--scroll-bg); /* cria um espaço como padding */
 }
 
 .scroll:hover::-webkit-scrollbar-thumb {
-  background-color: #5a5a5a; /* cor quando hover */
+  background-color: var(--scroll-hover); /* cor quando hover */
 }

@@ -14,6 +14,13 @@ export default function BodyContact() {
 
   const isEmailValid = email.includes("@") && email.includes(".");
 
+  const hexToRgba = (hex: string, alpha: number) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
   return (
     <div
       style={{
@@ -70,7 +77,7 @@ export default function BodyContact() {
             {email && !isEmailValid && (
               <span
                 style={{
-                  color: "#ff4d4d",
+                  color: themeColors.error,
                   fontSize: "12px",
                   marginLeft: "10px",
                 }}
@@ -90,7 +97,9 @@ export default function BodyContact() {
                 paddingRight: "32px", // espaço pro ícone
                 backgroundColor: "transparent",
                 border: `1px solid ${
-                  email && !isEmailValid ? "#ff4d4d" : themeColors.second
+                  email && !isEmailValid
+                    ? themeColors.error
+                    : themeColors.second
                 }`,
                 color: themeColors.second,
                 borderRadius: "4px",
@@ -107,12 +116,12 @@ export default function BodyContact() {
                   right: "10px",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  color: "#ff4d4d",
+                  color: themeColors.error,
                   fontSize: "16px",
                   pointerEvents: "none",
                 }}
               >
-                <IoAlertCircleOutline color="#ff4d4d" size={16} />
+                <IoAlertCircleOutline color={themeColors.error} size={16} />
               </span>
             )}
           </div>
@@ -145,7 +154,9 @@ export default function BodyContact() {
           style={{
             marginTop: "10px",
             padding: "6px 14px",
-            backgroundColor: isEmailValid ? themeColors.second : "#666",
+            backgroundColor: isEmailValid
+              ? themeColors.second
+              : hexToRgba(themeColors.second, 0.7),
             color: themeColors.primary,
             border: "none",
             borderRadius: "4px",
@@ -165,7 +176,7 @@ export default function BodyContact() {
         style={{
           flex: 1,
           padding: "30px",
-          backgroundColor: "#0d1117",
+          backgroundColor: themeColors.syntaxBackgroundAlt,
           borderLeft: `1px solid ${themeColors.second}`,
           fontSize: "14px",
           whiteSpace: "pre-wrap",
@@ -178,23 +189,46 @@ export default function BodyContact() {
         className="scroll"
       >
         <code>
-          <span style={{ color: "#c792ea" }}>const</span> button =
-          document.querySelector(
-          <span style={{ color: "#ecc48d" }}>"#sendBtn"</span>);
+          <span style={{ color: themeColors.syntaxKeywordAlt }}>const</span>{" "}
+          button = document.querySelector(
+          <span style={{ color: themeColors.syntaxStringAlt }}>"#sendBtn"</span>
+          );
           {"\n\n"}
-          <span style={{ color: "#c792ea" }}>const</span> message = {"{"}
+          <span style={{ color: themeColors.syntaxKeywordAlt }}>
+            const
+          </span>{" "}
+          message = {"{"}
           {"\n  "}
-          <span style={{ color: "#82aaff" }}>to</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"tobiasmaugus705@gmail.com"</span>,
-          {"\n  "}
-          <span style={{ color: "#82aaff" }}>name</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{name || ""}"</span>,{"\n  "}
-          <span style={{ color: "#82aaff" }}>email</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{email || ""}"</span>,{"\n  "}
-          <span style={{ color: "#82aaff" }}>message</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>"{message || ""}"</span>,{"\n  "}
-          <span style={{ color: "#82aaff" }}>date</span>:{" "}
-          <span style={{ color: "#ecc48d" }}>
+          <span style={{ color: themeColors.syntaxVariableAlt }}>to</span>:{" "}
+          <span style={{ color: themeColors.syntaxStringAlt }}>
+            "tobiasmaugus705@gmail.com"
+          </span>
+          ,{"\n  "}
+          <span style={{ color: themeColors.syntaxVariableAlt }}>
+            name
+          </span>:{" "}
+          <span style={{ color: themeColors.syntaxStringAlt }}>
+            "{name || ""}"
+          </span>
+          ,{"\n  "}
+          <span style={{ color: themeColors.syntaxVariableAlt }}>
+            email
+          </span>:{" "}
+          <span style={{ color: themeColors.syntaxStringAlt }}>
+            "{email || ""}"
+          </span>
+          ,{"\n  "}
+          <span style={{ color: themeColors.syntaxVariableAlt }}>
+            message
+          </span>:{" "}
+          <span style={{ color: themeColors.syntaxStringAlt }}>
+            "{message || ""}"
+          </span>
+          ,{"\n  "}
+          <span style={{ color: themeColors.syntaxVariableAlt }}>
+            date
+          </span>:{" "}
+          <span style={{ color: themeColors.syntaxStringAlt }}>
             "{new Date().toDateString()}"
           </span>
           {"\n"}

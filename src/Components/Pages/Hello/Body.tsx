@@ -5,6 +5,7 @@ import { useAppContext } from "../../../contexts/AppContext";
 export default function BodyHello() {
   const { theme } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+
   return (
     <div
       style={{
@@ -19,7 +20,7 @@ export default function BodyHello() {
         justifyContent: "center",
         alignItems: "center",
         fontFamily: "'Fira Code', 'Courier New', monospace",
-        color: "#d4d4d4",
+        color: themeColors.syntaxDefault,
         padding: "20px",
       }}
       className="body-hello"
@@ -34,7 +35,7 @@ export default function BodyHello() {
           maxWidth: "600px", // controla o quanto o bloco vai para o centro
         }}
       >
-        <div style={{ marginBottom: "10px", color: "#d4d4d4" }}>
+        <div style={{ marginBottom: "10px", color: themeColors.syntaxDefault }}>
           Hi all. I am
         </div>
 
@@ -44,30 +45,43 @@ export default function BodyHello() {
             fontWeight: 300,
             fontFamily: "'Inter', sans-serif",
             fontStyle: "normal",
-            color: "#ffffff",
+            color: themeColors.whiteHover,
           }}
         >
           Tobias Maugus
         </div>
 
-        <div style={{ color: "#7aa2f7", fontSize: "20px", marginTop: "5px" }}>
+        <div
+          style={{
+            color: themeColors.syntaxTitle,
+            fontSize: "20px",
+            marginTop: "5px",
+          }}
+        >
           &gt; Fullstack developer
         </div>
 
         <br />
 
-        <div style={{ color: "#6c6c6c" }}>// find my profile on Github:</div>
+        <div style={{ color: themeColors.syntaxSubtitle }}>
+          // find my profile on Github:
+        </div>
 
         <div style={{ marginTop: "5px" }}>
-          <span style={{ color: "#569cd6" }}>const</span>{" "}
-          <span style={{ color: "#4ec9b0" }}>githubLink</span> ={" "}
-          <span style={{ color: "#ce9178" }}>
+          <span style={{ color: themeColors.syntaxKeyword }}>const</span>{" "}
+          <span style={{ color: themeColors.syntaxVariable }}>githubLink</span>{" "}
+          ={" "}
+          <span style={{ color: themeColors.syntaxString }}>
             <a
               href="https://github.com/TobiasMaugus"
               target="_blank"
               rel="noopener noreferrer"
+              style={{
+                color: themeColors.syntaxString,
+                textDecoration: "none",
+              }}
             >
-              “https://github.com/TobiasMaugus”
+              "https://github.com/TobiasMaugus"
             </a>
           </span>
         </div>

@@ -8,9 +8,9 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
   const l = languages[language];
 
   return (
-    <div className="fixed inset-0 bg-black/50 bg-opacity-50 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
       <div
-        className="rounded-md p-6 border"
+        className="rounded-md p-6 border w-[400px] flex flex-col items-center" // <-- largura aumentada + centralização
         style={{
           backgroundColor: themeColors.primary,
           borderColor: themeColors.second,
@@ -19,10 +19,14 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
           fontWeight: 200,
         }}
       >
-        <h2 className="text-lg mb-4">{l.settings}</h2>
+        <h2 className="text-lg mb-4 text-center" style={{ fontWeight: 300 }}>
+          {l.settings}
+        </h2>
 
         {/* Theme Switch */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          {" "}
+          {/* <-- centralização */}
           <span>Theme: {theme === "dark" ? "Dark" : "Light"}</span>
           <label className="inline-flex items-center cursor-pointer">
             <input
@@ -33,7 +37,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
             />
             <div
               className={`w-11 h-6 rounded-full ${
-                theme === "dark" ? "bg-orange-400" : "bg-gray-300"
+                theme === "dark" ? "bg-purple-500" : "bg-blue-400"
               } relative transition`}
             >
               <div
@@ -46,17 +50,26 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Language Select */}
-        <div className="mb-4">
-          <label className="block mb-1">Language</label>
-          <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value as "pt" | "en" | "es")}
-            className="px-2 py-1 rounded bg-transparent border border-current"
-          >
-            <option value="en">English</option>
-            <option value="pt">Português</option>
-            <option value="es">Español</option>
-          </select>
+        <div className="mb-4 flex flex-col items-center">
+          <label className="block mb-1">Language:</label>
+          <div className="relative inline-block w-40">
+            <select
+              value={language}
+              onChange={(e) =>
+                setLanguage(e.target.value as "pt" | "en" | "es")
+              }
+              className="w-full px-3 py-1 rounded border border-current text-center"
+              style={{
+                backgroundColor: themeColors.primary, // fundo do select
+                color: themeColors.second, // cor do texto
+                borderColor: themeColors.second, // cor da borda
+              }}
+            >
+              <option value="en">English</option>
+              <option value="pt">Português</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
         </div>
 
         <button

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown, FileText } from "lucide-react";
-import { colors } from "../../../colors/colors";
+import { colors, light_colors } from "../../../colors/colors";
+import { useAppContext } from "../../../contexts/AppContext";
 
 interface SubItem {
   onClick?: () => void;
@@ -26,6 +27,8 @@ export default function Folder({
   selected = "",
 }: FolderProps) {
   const [isOpen, setIsOpen] = useState(true);
+  const { theme } = useAppContext();
+  const themeColors = theme === "dark" ? colors : light_colors;
 
   return (
     <div>
@@ -36,7 +39,7 @@ export default function Folder({
           alignItems: "center",
           cursor: "pointer",
           gap: "8px",
-          color: colors.second,
+          color: themeColors.second,
           fontSize: "14px",
           padding: "4px 0",
         }}
@@ -51,7 +54,7 @@ export default function Folder({
           <div
             style={{
               width: "10px",
-              borderLeft: `1px solid ${colors.second}`,
+              borderLeft: `1px solid ${themeColors.second}`,
               marginLeft: "9px",
               marginRight: "5px",
             }}
@@ -73,21 +76,26 @@ export default function Folder({
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 200,
                     fontStyle: "thin",
-                    color: colors.second,
+                    color: themeColors.second,
                     fontSize: "14px",
-                    backgroundColor: isSelected ? "#2c2c2c" : "transparent",
+                    backgroundColor: isSelected
+                      ? themeColors.folderHover
+                      : "transparent",
                     transition: "background-color 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
                     if (!isSelected)
-                      e.currentTarget.style.backgroundColor = "#1e1e1e";
+                      e.currentTarget.style.backgroundColor =
+                        themeColors.scrollBg;
                   }}
                   onMouseLeave={(e) => {
                     if (!isSelected)
                       e.currentTarget.style.backgroundColor = "transparent";
                   }}
                 >
-                  {item.icon || <FileText size={14} color={colors.second} />}
+                  {item.icon || (
+                    <FileText size={14} color={themeColors.second} />
+                  )}
                   {item.label}
                 </div>
               );

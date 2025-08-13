@@ -35,6 +35,8 @@ export function AppProvider({ children }: { children: React.ReactElement }) {
             "--scroll-bar": themeColors.scrollBar,
             "--scroll-hover": themeColors.scrollHover,
             "--folder-hover": themeColors.folderHover,
+            "--modal-overlay":
+              theme === "dark" ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.3)",
             "--gradient-circle":
               theme === "dark"
                 ? "rgba(0, 255, 210, 0.1)"

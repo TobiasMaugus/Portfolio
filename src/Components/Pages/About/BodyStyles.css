@@ -3,23 +3,23 @@
 }
 
 .json-scroll::-webkit-scrollbar-track {
-  background: #1e1e1e; /* mesma cor do fundo */
+  background: var(--scroll-bg); /* mesma cor do fundo */
 }
 
 .json-scroll::-webkit-scrollbar-thumb {
-  background-color: #3c3c3c; /* cor da "barra" */
+  background-color: var(--scroll-bar); /* cor da "barra" */
   border-radius: 4px;
-  border: 2px solid #1e1e1e; /* cria um espaço como padding */
+  border: 2px solid var(--scroll-bg); /* cria um espaço como padding */
 }
 
 .json-scroll:hover::-webkit-scrollbar-thumb {
-  background-color: #5a5a5a; /* cor quando hover */
+  background-color: var(--scroll-hover); /* cor quando hover */
 }
 
 .body-no-file {
   background: radial-gradient(
     circle at 70% 60%,
-    rgba(0, 255, 210, 0.1),
-    rgba(10, 10, 30, 1) 60%
+    var(--gradient-circle),
+    var(--gradient-bg) 60%
   );
 }

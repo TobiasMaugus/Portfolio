@@ -61,7 +61,7 @@ export default function Footer() {
         </ul>
 
         <button
-          //onClick={() => setShowModal(true)}
+          onClick={() => setShowModal(true)}
           className="icon-wrapper ml-auto px-3 py-2.5 border-l border-custom-h equal-width-h cursor-pointer"
         >
           <LuSettings size={20} className="icon transition-all duration-300" />
