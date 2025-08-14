@@ -125,6 +125,7 @@ export default function BodyAbout() {
 
             {/* Conteúdo do arquivo */}
             <div
+              className="json-scroll"
               style={{
                 padding: "20px",
                 fontFamily: "'Fira Code', 'Courier New', monospace",

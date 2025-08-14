@@ -47,3 +47,82 @@
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+/* estado e seta */
+.folder-arrow {
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+.filter-folder.is-open .folder-arrow {
+  transform: rotate(90deg); /* desktop: aberto = seta p/ baixo */
+}
+
+/* comportamento padrão desktop */
+.desktop-only { display: block; }
+.mobile-only  { display: none; }
+
+/* -------- MODAL MOBILE -------- */
+.ff-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;            /* só mostra quando .open e no mobile */
+  z-index: 50;
+}
+.ff-modal-backdrop.open { display: block; }
+
+.ff-modal {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 92%;
+  max-width: 520px;
+  max-height: 65vh;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ff-modal-header,
+.ff-modal-footer {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ff-modal-body {
+  padding: 8px 12px;
+  overflow-y: auto;
+}
+
+.ff-mobile-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 6px;
+  border-radius: 8px;
+}
+.ff-mobile-option:hover {
+  background: rgba(127,127,127,.08);
+}
+
+.ff-modal-done {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: transparent;
+}
+
+/* -------- MOBILE -------- */
+@media (max-width: 768px) {
+  /* no mobile o texto da pasta some e a lista NUNCA aparece */
+  .folder-label { display: none; }
+  .desktop-only  { display: none !important; }
+  .mobile-only   { display: block !important; }
+  /* seta sempre "fechada" por padrão visual */
+  .filter-folder .folder-arrow { transform: rotate(0deg) !important; }
+}

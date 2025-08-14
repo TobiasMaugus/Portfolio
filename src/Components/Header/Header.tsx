@@ -98,11 +98,12 @@ export default function Header() {
         {/* Drawer mobile */}
         {drawerOpen && (
           <div
-            className="md:hidden absolute top-full right-0 bg-white dark:bg-gray-900 shadow-lg flex flex-col z-50"
+            className="md:hidden absolute top-full right-0 shadow-lg flex flex-col z-50"
             style={{
               borderColor: themeColors.second,
               borderWidth: "1px",
               minWidth: "150px",
+              backgroundColor: themeColors.primary,
             }}
           >
             {navItems.map((item) => (
