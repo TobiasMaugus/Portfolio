@@ -4,6 +4,7 @@ import "./Header.css";
 import { NavLink, Link } from "react-router-dom";
 import { useAppContext } from "../../contexts/AppContext.tsx";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const { theme } = useAppContext();
@@ -29,7 +30,6 @@ export default function Header() {
         borderWidth: "1px",
         fontFamily: "'Inter', sans-serif",
         fontWeight: 200,
-        fontStyle: "thin",
         color: themeColors.second,
         borderTopLeftRadius: "4px",
         borderTopRightRadius: "4px",
@@ -43,36 +43,18 @@ export default function Header() {
 
         {/* Desktop menu */}
         <ul className="hidden md:flex flex-grow">
-          <li className="border-r border-custom equal-width">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `text-wrapper px-5 py-2 ${isActive ? "active-link" : ""}`
-              }
-            >
-              _hello
-            </NavLink>
-          </li>
-          <li className="border-r border-custom equal-width">
-            <NavLink
-              to="/about-me"
-              className={({ isActive }) =>
-                `text-wrapper px-5 py-2 ${isActive ? "active-link" : ""}`
-              }
-            >
-              _about-me
-            </NavLink>
-          </li>
-          <li className="border-r border-custom equal-width">
-            <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                `text-wrapper px-5 py-2 ${isActive ? "active-link" : ""}`
-              }
-            >
-              _projects
-            </NavLink>
-          </li>
+          {navItems.map((item) => (
+            <li key={item.path} className="border-r border-custom equal-width">
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `text-wrapper px-5 py-2 ${isActive ? "active-link" : ""}`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
         <ul className="hidden md:flex">
@@ -83,15 +65,37 @@ export default function Header() {
           </li>
         </ul>
 
-        {/* Hamburger mobile no canto direito */}
+        {/* Botão do drawer no mobile */}
         <div
-          className="md:hidden px-4 cursor-pointer ml-auto"
+          className="md:hidden px-4 cursor-pointer ml-auto flex items-center"
           onClick={toggleDrawer}
         >
-          {drawerOpen ? <X size={24} /> : <Menu size={24} />}
+          <AnimatePresence mode="wait" initial={false}>
+            {drawerOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={24} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu size={24} />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Drawer mobile no canto direito */}
+        {/* Drawer mobile */}
         {drawerOpen && (
           <div
             className="md:hidden absolute top-full right-0 bg-white dark:bg-gray-900 shadow-lg flex flex-col z-50"
@@ -105,7 +109,7 @@ export default function Header() {
               <NavLink
                 key={item.path}
                 to={item.path}
-                className="text-wrapper px-5 py-3 border-b border-custom"
+                className="drawer px-5 py-4 border-b border-custom"
                 onClick={() => setDrawerOpen(false)}
               >
                 {item.label}
@@ -113,7 +117,7 @@ export default function Header() {
             ))}
             <Link
               to="contact-me"
-              className="text-wrapper px-5 py-3"
+              className="drawer px-5 py-4"
               onClick={() => setDrawerOpen(false)}
             >
               _contact-me
