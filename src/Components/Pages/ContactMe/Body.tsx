@@ -3,10 +3,12 @@ import { colors, light_colors } from "../../../colors/colors";
 import { useAppContext } from "../../../contexts/AppContext";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import "./BodyStyles.css";
+import { languages } from "../../../languages/languages";
 
 export default function BodyContact() {
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +51,9 @@ export default function BodyContact() {
         }}
       >
         <label>
-          <span style={{ marginBottom: "4px", display: "block" }}>_name:</span>
+          <span style={{ marginBottom: "4px", display: "block" }}>
+            {l.name}
+          </span>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -75,7 +79,7 @@ export default function BodyContact() {
               marginBottom: "4px",
             }}
           >
-            <span>_email:</span>
+            <span>{l.email}</span>
             {email && !isEmailValid && (
               <span
                 style={{
@@ -84,7 +88,7 @@ export default function BodyContact() {
                   marginLeft: "10px",
                 }}
               >
-                Wrong email address
+                {l.wrongEmail}
               </span>
             )}
           </div>
@@ -131,12 +135,12 @@ export default function BodyContact() {
 
         <label>
           <span style={{ marginBottom: "4px", display: "block" }}>
-            _message:
+            {l.message}
           </span>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="your message here ..."
+            placeholder={l.messagePlaceholder}
             style={{
               width: "100%",
               padding: "10px",
@@ -170,7 +174,7 @@ export default function BodyContact() {
           }}
           className="button-sub"
         >
-          submit-message
+          {l.submitMessage}
         </button>
       </div>
 

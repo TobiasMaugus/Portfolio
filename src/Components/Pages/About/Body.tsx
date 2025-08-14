@@ -7,11 +7,13 @@ import { SiCplusplus, SiPhp, SiMarkdown } from "react-icons/si";
 import { IoCloseSharp } from "react-icons/io5";
 import { VscJson } from "react-icons/vsc";
 import { useAppContext } from "../../../contexts/AppContext";
+import { languages } from "../../../languages/languages";
 
 export default function BodyAbout() {
   const [selectedFile, setSelectedFile] = useState<string>("bio.md");
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   return (
     <div
@@ -39,17 +41,17 @@ export default function BodyAbout() {
       >
         <Folder
           icon={<FolderIcon size={18} />}
-          label="about-me"
+          label={l.aboutMe}
           iconColor={themeColors.folder4}
           selected={selectedFile}
           subItems={[
             {
-              label: "bio.md",
+              label: l.bio,
               onClick: () => setSelectedFile("bio.md"),
               icon: <SiMarkdown size={18} />,
             },
             {
-              label: "hobbies.php",
+              label: l.hobbies,
               onClick: () => setSelectedFile("hobbies.php"),
               icon: <SiPhp size={18} />,
             },
@@ -58,17 +60,17 @@ export default function BodyAbout() {
 
         <Folder
           icon={<FolderIcon size={18} />}
-          label="skills"
+          label={l.skills}
           iconColor={themeColors.folder5}
           selected={selectedFile}
           subItems={[
             {
-              label: "technologies.json",
+              label: l.technologies,
               onClick: () => setSelectedFile("technologies.json"),
               icon: <VscJson size={18} />,
             },
             {
-              label: "languages.cpp",
+              label: l.languages,
               onClick: () => setSelectedFile("languages.cpp"),
               icon: <SiCplusplus size={18} />,
             },
@@ -140,18 +142,16 @@ export default function BodyAbout() {
             >
               <div>
                 <span style={{ color: themeColors.syntaxKeyword }}>
-                  ## Hello, I'm Tobias Maugus!
+                  {l.bioTitle}
                 </span>
                 {"\n\n"}
                 <p>
-                  Developer with a technical degree in Information Technology
-                  from the{" "}
+                  {l.bioParagraph1}{" "}
                   <span style={{ color: themeColors.syntaxFunction }}>
                     Federal Center for Technological Education of Minas Gerais
                     (CEFET-MG)
                   </span>{" "}
-                  and practical experience in programming with various
-                  languages, including{" "}
+                  {l.bioParagraph2}{" "}
                   <span style={{ color: themeColors.syntaxString }}>
                     Python
                   </span>
@@ -176,21 +176,17 @@ export default function BodyAbout() {
                   and{" "}
                   <span style={{ color: themeColors.syntaxString }}>SQL</span>.
                 </p>
+                <p>{l.bioParagraph3}</p>
                 <p>
-                  During my internship, I taught basic computer courses,
-                  enhancing my communication and teaching skills.
-                </p>
-                <p>
-                  I am currently pursuing a degree in{" "}
+                  {l.bioParagraph4}{" "}
                   <span style={{ color: themeColors.syntaxFunction }}>
                     Computer Science
                   </span>{" "}
-                  at the{" "}
+                  {l.bioParagraph5}{" "}
                   <span style={{ color: themeColors.syntaxFunction }}>
                     Federal University of Lavras (UFLA)
                   </span>{" "}
-                  and seeking new opportunities to apply and expand my knowledge
-                  in software development.
+                  {l.bioParagraph6}
                 </p>
               </div>
             </div>
@@ -396,7 +392,7 @@ export default function BodyAbout() {
               }}
             >
               <span style={{ color: themeColors.syntaxComment }}>
-                // Language Proficiency
+                {l.languageProficiency}
               </span>
               <br />
               <span style={{ color: themeColors.syntaxKeyword }}>
@@ -421,19 +417,19 @@ export default function BodyAbout() {
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
               <span style={{ color: themeColors.syntaxString }}>
-                "Native: Portuguese"
+                "{l.native}"
               </span>{" "}
               &lt;&lt; endl;
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
               <span style={{ color: themeColors.syntaxString }}>
-                "Fluent: English"
+                "{l.fluent}"
               </span>{" "}
               &lt;&lt; endl;
               <br />
               &nbsp;&nbsp;cout &lt;&lt;{" "}
               <span style={{ color: themeColors.syntaxString }}>
-                "Intermediate: Spanish"
+                "{l.intermediate}"
               </span>{" "}
               &lt;&lt; endl;
               <br />
@@ -522,25 +518,31 @@ export default function BodyAbout() {
               <span style={{ color: themeColors.syntaxKeyword }}>return</span> [
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: themeColors.syntaxString }}>'Math'</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: themeColors.syntaxString }}>'Gaming'</span>,
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span style={{ color: themeColors.syntaxString }}>
-                'Watching Movies'
-              </span>
-              ,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span style={{ color: themeColors.syntaxString }}>
-                'Listening to Music'
+                {l.hobbiesMath}
               </span>
               ,
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span style={{ color: themeColors.syntaxString }}>
-                'Coding Personal Projects'
+                {l.hobbiesGaming}
+              </span>
+              ,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                {l.hobbiesMovies}
+              </span>
+              ,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                {l.hobbiesMusic}
+              </span>
+              ,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span style={{ color: themeColors.syntaxString }}>
+                {l.hobbiesCoding}
               </span>
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;];
@@ -599,7 +601,7 @@ export default function BodyAbout() {
                 zIndex: 1,
               }}
             >
-              No file selected. Select a file from the left sidebar.
+              {l.noFileSelected}
             </span>
           </div>
         )}

@@ -5,18 +5,20 @@ import { NavLink, Link } from "react-router-dom";
 import { useAppContext } from "../../contexts/AppContext.tsx";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { languages } from "../../languages/languages";
 
 export default function Header() {
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const l = languages[language];
 
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
   const navItems = [
-    { path: "/", label: "_hello" },
-    { path: "/about-me", label: "_about-me" },
-    { path: "/projects", label: "_projects" },
+    { path: "/", label: l.hello },
+    { path: "/about-me", label: l.about },
+    { path: "/projects", label: l.projects },
   ];
 
   return (
@@ -60,7 +62,7 @@ export default function Header() {
         <ul className="hidden md:flex">
           <li className="border-l border-custom equal-width-contact">
             <Link to="contact-me" className="text-wrapper px-5 py-2">
-              _contact-me
+              {l.contact}
             </Link>
           </li>
         </ul>
@@ -121,7 +123,7 @@ export default function Header() {
               className="drawer px-5 py-4"
               onClick={() => setDrawerOpen(false)}
             >
-              _contact-me
+              {l.contact}
             </Link>
           </div>
         )}

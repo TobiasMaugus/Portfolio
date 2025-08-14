@@ -1,10 +1,12 @@
 import { colors, light_colors } from "../../../colors/colors";
 import "./BodyStyles.css";
 import { useAppContext } from "../../../contexts/AppContext";
+import { languages } from "../../../languages/languages";
 
 export default function BodyHello() {
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   return (
     <div
@@ -36,7 +38,7 @@ export default function BodyHello() {
         }}
       >
         <div style={{ marginBottom: "10px", color: themeColors.syntaxDefault }}>
-          Hi all. I am
+          {l.hiAll}
         </div>
 
         <div
@@ -58,14 +60,12 @@ export default function BodyHello() {
             marginTop: "5px",
           }}
         >
-          &gt; Fullstack developer
+          &gt; {l.fullstackDeveloper}
         </div>
 
         <br />
 
-        <div style={{ color: themeColors.syntaxSubtitle }}>
-          // find my profile on Github:
-        </div>
+        <div style={{ color: themeColors.syntaxSubtitle }}>{l.findGithub}</div>
 
         <div style={{ marginTop: "5px" }}>
           <span style={{ color: themeColors.syntaxKeyword }}>const</span>{" "}

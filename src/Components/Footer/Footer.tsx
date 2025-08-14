@@ -5,12 +5,14 @@ import { LuSettings, LuMenu } from "react-icons/lu";
 import { SiLinkedin, SiGithub, SiGmail } from "react-icons/si";
 import SettingsModal from "../Pages/Settings/Modal.tsx";
 import { useAppContext } from "../../contexts/AppContext.tsx";
+import { languages } from "../../languages/languages";
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   return (
     <>
@@ -35,7 +37,7 @@ export default function Footer() {
       >
         {/* Desktop */}
         <nav className="hidden md:flex flex-1 items-center">
-          <div className="px-5 py-2 border-r border-custom">find me in: </div>
+          <div className="px-5 py-2 border-r border-custom">{l.findMeIn} </div>
           <ul className="flex flex-grow">
             <a
               href="https://mail.google.com/mail/?view=cm&to=tobiasmaugus705@gmail.com"
@@ -102,7 +104,7 @@ export default function Footer() {
           }}
         >
           <div className="flex justify-between items-center mb-4">
-            <span style={{ color: themeColors.second }}>find me in:</span>
+            <span style={{ color: themeColors.second }}>{l.findMeIn}</span>
             <button
               onClick={() => setDrawerOpen(false)}
               style={{ color: themeColors.second }}
@@ -146,7 +148,7 @@ export default function Footer() {
               color: themeColors.second,
             }}
           >
-            <LuSettings size={20} className="inline mr-2" /> Settings
+            <LuSettings size={20} className="inline mr-2" /> {l.settings}
           </button>
         </div>
       )}

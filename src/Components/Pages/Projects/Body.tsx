@@ -13,11 +13,13 @@ import Imgmobile from "../../../assets/mobile.png";
 import ImgPyhton from "../../../assets/python.jpg";
 
 import { useAppContext } from "../../../contexts/AppContext";
+import { languages } from "../../../languages/languages";
 
 export default function BodyProjects() {
   const [checkedTechs, setCheckedTechs] = useState<string[]>([]);
-  const { theme } = useAppContext();
+  const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
+  const l = languages[language];
 
   const handleTechChange = (label: string, isChecked: boolean) => {
     setCheckedTechs((prev) =>
@@ -52,7 +54,7 @@ export default function BodyProjects() {
       >
         <FilterFolder
           icon={<FolderIcon size={18} />}
-          label="Backend"
+          label={l.backend}
           iconColor={themeColors.folder1}
           subItems={[
             {
@@ -83,7 +85,7 @@ export default function BodyProjects() {
         />
         <FilterFolder
           icon={<FolderIcon size={18} />}
-          label="Frontend"
+          label={l.frontend}
           iconColor={themeColors.folder2}
           subItems={[
             {
@@ -114,7 +116,7 @@ export default function BodyProjects() {
         />
         <FilterFolder
           icon={<FolderIcon size={18} />}
-          label="Others"
+          label={l.others}
           iconColor={themeColors.folder3}
           subItems={[
             {
@@ -146,45 +148,44 @@ export default function BodyProjects() {
       >
         <Card
           image={ImgCpp}
-          title="Data Structures"
-          description="Project for the discipline of Data Structures and Algorithms made in C++. Uses Sequence Sets made from scratch."
+          title={l.dataStructures}
+          description={l.dataStructuresDesc}
           link=""
         />
         <Card
           image={ImgGraph}
-          title="Graphs"
-          description="Graph Theory project made in Python for academic purposes. 
-          It's a heuristic for a variation of MCARP."
+          title={l.graphs}
+          description={l.graphsDesc}
           link="https://github.com/TobiasMaugus/Grafos2"
         />
         <Card
           image={ImgIalg}
-          title="Uni Introduction"
-          description="It's a very simple project made in C++ for the discipline of Algorithms Introduction."
+          title={l.uniIntroduction}
+          description={l.uniIntroductionDesc}
           link="https://github.com/TobiasMaugus/ProjetoFinalIALG"
         />
         <Card
           image={Imgmobile}
-          title="Mobile App"
-          description="An MVP of Mobile App made in 2022 for motorcicle deliverys."
+          title={l.mobileApp}
+          description={l.mobileAppDesc}
           link="https://github.com/TobiasMaugus/mobile2022.git"
         />
         <Card
           image={ImgLaravel}
-          title="Laravel"
-          description="One of the first CRUD's I've made(2022). It uses PHP with Laravel."
+          title={l.laravel}
+          description={l.laravelDesc}
           link="https://github.com/TobiasMaugus/laravelzin.git"
         />
         <Card
           image={ImgAnimes}
-          title="First Site"
-          description="First Site I've made myself and did the deploy(2021). Unfortunately the API was hosted in a site that no longer exists."
+          title={l.firstSite}
+          description={l.firstSiteDesc}
           link="https://reactweb1.vercel.app/"
         />
         <Card
           image={ImgPyhton}
-          title="Problems"
-          description="Series of Python Problems made in 2021 for academic purposes. It has some DNA problems, math model problems and ORM to model some DB's."
+          title={l.problems}
+          description={l.problemsDesc}
           link="https://github.com/example/project"
         />
       </div>

@@ -27,7 +27,9 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
         <div className="flex items-center justify-center gap-4 mb-4">
           {" "}
           {/* <-- centralização */}
-          <span>Theme: {theme === "dark" ? "Dark" : "Light"}</span>
+          <span>
+            {l.theme}: {theme === "dark" ? l.dark : l.light}
+          </span>
           <label className="inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
@@ -51,7 +53,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
 
         {/* Language Select */}
         <div className="mb-4 flex flex-col items-center">
-          <label className="block mb-1">Language:</label>
+          <label className="block mb-1">{l.language}</label>
           <div className="relative inline-block w-40">
             <select
               value={language}
@@ -76,7 +78,7 @@ export default function SettingsModal({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="mt-4 px-4 py-2 rounded border border-current hover:bg-gray-800 transition"
         >
-          Close
+          {l.close}
         </button>
       </div>
     </div>
