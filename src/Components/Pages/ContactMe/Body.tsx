@@ -35,6 +35,7 @@ export default function BodyContact() {
         fontFamily: "'Fira Code', monospace",
         fontWeight: 200,
       }}
+      className="form"
     >
       {/* Formulário */}
       <div
@@ -44,6 +45,7 @@ export default function BodyContact() {
           display: "flex",
           flexDirection: "column",
           gap: "20px",
+          justifyContent: "center",
         }}
       >
         <label>
@@ -164,8 +166,9 @@ export default function BodyContact() {
             fontWeight: 400,
             fontFamily: "'Fira Code', monospace",
             opacity: isEmailValid ? 1 : 0.6,
-            alignSelf: "flex-start",
+            alignSelf: window.innerWidth <= 768 ? "center" : "flex-start",
           }}
+          className="button-sub"
         >
           submit-message
         </button>
@@ -186,7 +189,7 @@ export default function BodyContact() {
           paddingRight: "16px", // <- espaço para o scroll
           boxSizing: "border-box",
         }}
-        className="scroll"
+        className="scroll code"
       >
         <code>
           <span style={{ color: themeColors.syntaxKeywordAlt }}>const</span>{" "}
