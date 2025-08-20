@@ -1,5 +1,5 @@
 import { colors, light_colors } from "../../../colors/colors";
-import { Folder as FolderIcon, FileCode } from "lucide-react";
+import { Folder as FolderIcon, Coffee } from "lucide-react";
 import { useState } from "react";
 import FilterFolder from "./FilterFolder";
 import "./BodyStyles.css";
@@ -11,6 +11,17 @@ import ImgIalg from "../../../assets/ialg.png";
 import ImgLaravel from "../../../assets/laravel.png";
 import Imgmobile from "../../../assets/mobile.png";
 import ImgPyhton from "../../../assets/python.jpg";
+import { DiPython } from "react-icons/di";
+import {
+  SiGo,
+  SiNodedotjs,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiCplusplus,
+  SiHaskell,
+  SiPhp,
+} from "react-icons/si";
 
 import { useAppContext } from "../../../contexts/AppContext";
 import { languages } from "../../../languages/languages";
@@ -59,25 +70,25 @@ export default function BodyProjects() {
           subItems={[
             {
               label: "Java",
-              icon: <FileCode size={18} />,
+              icon: <Coffee size={18} />,
               checked: checkedTechs.includes("Java"),
               onChange: handleTechChange,
             },
             {
               label: "Go",
-              icon: <FileCode size={18} />,
+              icon: <SiGo size={18} />,
               checked: checkedTechs.includes("Go"),
               onChange: handleTechChange,
             },
             {
               label: "Python",
-              icon: <FileCode size={18} />,
+              icon: <DiPython size={18} />,
               checked: checkedTechs.includes("Python"),
               onChange: handleTechChange,
             },
             {
               label: "Node.js",
-              icon: <FileCode size={18} />,
+              icon: <SiNodedotjs size={18} />,
               checked: checkedTechs.includes("Node.js"),
               onChange: handleTechChange,
             },
@@ -90,25 +101,25 @@ export default function BodyProjects() {
           subItems={[
             {
               label: "HTML",
-              icon: <FileCode size={18} />,
+              icon: <SiHtml5 size={18} />,
               checked: checkedTechs.includes("HTML"),
               onChange: handleTechChange,
             },
             {
               label: "CSS",
-              icon: <FileCode size={18} />,
+              icon: <SiCss3 size={18} />,
               checked: checkedTechs.includes("CSS"),
               onChange: handleTechChange,
             },
             {
               label: "JavaScript",
-              icon: <FileCode size={18} />,
+              icon: <SiJavascript size={18} />,
               checked: checkedTechs.includes("JavaScript"),
               onChange: handleTechChange,
             },
             {
-              label: "TypeScript",
-              icon: <FileCode size={18} />,
+              label: "Php",
+              icon: <SiPhp size={18} />,
               checked: checkedTechs.includes("TypeScript"),
               onChange: handleTechChange,
             },
@@ -121,13 +132,13 @@ export default function BodyProjects() {
           subItems={[
             {
               label: "C++",
-              icon: <FileCode size={18} />,
+              icon: <SiCplusplus size={18} />,
               checked: checkedTechs.includes("C++"),
               onChange: handleTechChange,
             },
             {
               label: "Haskell",
-              icon: <FileCode size={18} />,
+              icon: <SiHaskell size={18} />,
               checked: checkedTechs.includes("Haskell"),
               onChange: handleTechChange,
             },
