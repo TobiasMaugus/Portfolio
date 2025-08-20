@@ -161,7 +161,7 @@ export default function BodyProjects() {
           image={ImgCpp}
           title={l.dataStructures}
           description={l.dataStructuresDesc}
-          link=""
+          link="https://github.com/TobiasMaugus/ProjetoED"
         />
         <Card
           image={ImgGraph}
