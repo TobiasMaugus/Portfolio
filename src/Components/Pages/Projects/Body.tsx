@@ -197,7 +197,7 @@ export default function BodyProjects() {
           image={ImgPyhton}
           title={l.problems}
           description={l.problemsDesc}
-          link="https://github.com/example/project"
+          link="https://github.com/example/lp2"
         />
       </div>
     </div>
