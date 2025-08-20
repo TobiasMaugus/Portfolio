@@ -31,6 +31,11 @@ export default function BodyContact() {
 
     setLoading(true);
 
+    // Cria toast de loading
+    const toastId = toast.loading(l.messageSending, {
+      position: "top-right",
+    });
+
     try {
       const response = await fetch(
         "https://apiemail-mymf.onrender.com/contato",
@@ -48,28 +53,38 @@ export default function BodyContact() {
       );
 
       if (response.ok) {
-        toast.success(l.messageSucesses, {
-          position: "top-right",
+        toast.update(toastId, {
+          render: l.messageSucesses,
+          type: "success",
+          isLoading: false,
           autoClose: 4000,
+          position: "top-right",
         });
+
         setName("");
         setEmail("");
         setMessage("");
       } else {
-        // Loga detalhes só no console (para debug)
         const errorText = await response.text();
         console.error(l.messageServerError, errorText);
 
-        toast.error(l.messageError, {
-          position: "top-right",
+        toast.update(toastId, {
+          render: l.messageError,
+          type: "error",
+          isLoading: false,
           autoClose: 4000,
+          position: "top-right",
         });
       }
     } catch (error) {
       console.error(l.messageConnectionError, error);
-      toast.error(l.messageInternetError, {
-        position: "top-right",
+
+      toast.update(toastId, {
+        render: l.messageInternetError,
+        type: "error",
+        isLoading: false,
         autoClose: 4000,
+        position: "top-right",
       });
     }
 

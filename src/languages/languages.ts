@@ -88,6 +88,7 @@ export const languages = {
     messageServerError: "Server error:",
     messageConnectionError: "Connection error:",
     messageInternetError: "Connection error. Check your internet.",
+    messageSending: "Sending message...",
     
     // Contact code
     contactCode1: "const button = document.querySelector(",
@@ -189,6 +190,7 @@ export const languages = {
     messageServerError: "Erro do servidor:",
     messageConnectionError: "Erro do conexão:",
     messageInternetError: "Erro de conexão. Verifique sua internet.",
+    messageSending: "Enviando mensagem...",
     
     // Contact code
     contactCode1: "const button = document.querySelector(",
@@ -290,6 +292,7 @@ export const languages = {
     messageServerError: "Error del servidor:",
     messageConnectionError: "Error de conexión:",
     messageInternetError: "Error de conexión. Verifica tu internet.",
+    messageSending: "Enviando mensaje...",
       
     // Contact code
     contactCode1: "const button = document.querySelector(",
