@@ -120,7 +120,7 @@ export default function BodyProjects() {
             {
               label: "Php",
               icon: <SiPhp size={18} />,
-              checked: checkedTechs.includes("TypeScript"),
+              checked: checkedTechs.includes("Php"),
               onChange: handleTechChange,
             },
           ]}
