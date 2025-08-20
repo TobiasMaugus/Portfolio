@@ -4,6 +4,8 @@ import { useAppContext } from "../../../contexts/AppContext";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import "./BodyStyles.css";
 import { languages } from "../../../languages/languages";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BodyContact() {
   const { theme, language } = useAppContext();
@@ -13,6 +15,7 @@ export default function BodyContact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const isEmailValid = email.includes("@") && email.includes(".");
 
@@ -21,6 +24,56 @@ export default function BodyContact() {
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const handleSubmit = async () => {
+    if (!isEmailValid) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "https://apiemail-mymf.onrender.com/contato",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: name,
+            email: email,
+            mensagem: message,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        toast.success(l.messageSucesses, {
+          position: "top-right",
+          autoClose: 4000,
+        });
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        // Loga detalhes só no console (para debug)
+        const errorText = await response.text();
+        console.error(l.messageServerError, errorText);
+
+        toast.error(l.messageError, {
+          position: "top-right",
+          autoClose: 4000,
+        });
+      }
+    } catch (error) {
+      console.error(l.messageConnectionError, error);
+      toast.error(l.messageInternetError, {
+        position: "top-right",
+        autoClose: 4000,
+      });
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -39,6 +92,17 @@ export default function BodyContact() {
       }}
       className="form"
     >
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       {/* Formulário */}
       <div
         style={{
@@ -100,7 +164,7 @@ export default function BodyContact() {
               style={{
                 width: "100%",
                 padding: "10px",
-                paddingRight: "32px", // espaço pro ícone
+                paddingRight: "32px",
                 backgroundColor: "transparent",
                 border: `1px solid ${
                   email && !isEmailValid
@@ -113,8 +177,6 @@ export default function BodyContact() {
               }}
               type="email"
             />
-
-            {/* Ícone de erro */}
             {email && !isEmailValid && (
               <span
                 style={{
@@ -157,6 +219,8 @@ export default function BodyContact() {
         </label>
 
         <button
+          onClick={handleSubmit}
+          disabled={!isEmailValid || loading}
           style={{
             marginTop: "10px",
             padding: "6px 14px",
@@ -174,7 +238,7 @@ export default function BodyContact() {
           }}
           className="button-sub"
         >
-          {l.submitMessage}
+          {loading ? l.submitMessage || "Enviando..." : l.submitMessage}
         </button>
       </div>
 
@@ -188,9 +252,9 @@ export default function BodyContact() {
           fontSize: "14px",
           whiteSpace: "pre-wrap",
           wordBreak: "break-word",
-          maxHeight: "100%", // <- limite vertical
-          overflowY: "auto", // <- scroll quando necessário
-          paddingRight: "16px", // <- espaço para o scroll
+          maxHeight: "100%",
+          overflowY: "auto",
+          paddingRight: "16px",
           boxSizing: "border-box",
         }}
         className="scroll code"
@@ -242,8 +306,7 @@ export default function BodyContact() {
           {"}"}
           {"\n\n"}
           button.addEventListener('click', () =&gt; {"{"}
-          {"\n  "}
-          form.send(message);
+          {"\n  "}form.send(message);
           {"\n"}
           {"});"}
         </code>

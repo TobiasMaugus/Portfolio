@@ -83,6 +83,11 @@ export const languages = {
     messagePlaceholder: "your message here ...",
     submitMessage: "submit-message",
     findMeIn: "find me in:",
+    messageSucesses: "Message sent successfully!",
+    messageError: "Error sending message. Please try again.",
+    messageServerError: "Server error:",
+    messageConnectionError: "Connection error:",
+    messageInternetError: "Connection error. Check your internet.",
     
     // Contact code
     contactCode1: "const button = document.querySelector(",
@@ -179,6 +184,11 @@ export const languages = {
     messagePlaceholder: "sua mensagem aqui ...",
     submitMessage: "enviar-mensagem",
     findMeIn: "encontre-me em:",
+    messageSucesses: "Mensagem enviada com sucesso!",
+    messageError: "Erro ao enviar mensagem. Tente novamente.",
+    messageServerError: "Erro do servidor:",
+    messageConnectionError: "Erro do conexão:",
+    messageInternetError: "Erro de conexão. Verifique sua internet.",
     
     // Contact code
     contactCode1: "const button = document.querySelector(",
@@ -275,7 +285,12 @@ export const languages = {
     messagePlaceholder: "tu mensaje aquí ...",
     submitMessage: "enviar-mensaje",
     findMeIn: "encuéntrame en:",
-    
+    messageSucesses: "¡Mensaje enviado con éxito!",
+    messageError: "Error al enviar el mensaje. Inténtalo de nuevo.",
+    messageServerError: "Error del servidor:",
+    messageConnectionError: "Error de conexión:",
+    messageInternetError: "Error de conexión. Verifica tu internet.",
+      
     // Contact code
     contactCode1: "const button = document.querySelector(",
     contactCode2: "const message = {",
