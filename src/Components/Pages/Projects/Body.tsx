@@ -1,6 +1,6 @@
 import { colors, light_colors } from "../../../colors/colors";
 import { Folder as FolderIcon, Coffee } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import FilterFolder from "./FilterFolder";
 import "./BodyStyles.css";
 import Card from "./Card";
@@ -9,8 +9,8 @@ import ImgGraph from "../../../assets/graphs.png";
 import ImgAnimes from "../../../assets/animes.png";
 import ImgIalg from "../../../assets/ialg.png";
 import ImgLaravel from "../../../assets/laravel.png";
-import Imgmobile from "../../../assets/mobile.png";
-import ImgPyhton from "../../../assets/python.jpg";
+import ImgMobile from "../../../assets/mobile.png";
+import ImgPython from "../../../assets/python.jpg";
 import { DiPython } from "react-icons/di";
 import {
   SiGo,
@@ -26,17 +26,98 @@ import {
 import { useAppContext } from "../../../contexts/AppContext";
 import { languages } from "../../../languages/languages";
 
+interface Project {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+  technologies: string[];
+}
+
 export default function BodyProjects() {
   const [checkedTechs, setCheckedTechs] = useState<string[]>([]);
   const { theme, language } = useAppContext();
   const themeColors = theme === "dark" ? colors : light_colors;
   const l = languages[language];
 
+  // Defina os projetos com suas tecnologias
+  const projects: Project[] = [
+    {
+      id: "1",
+      image: ImgCpp,
+      title: l.dataStructures,
+      description: l.dataStructuresDesc,
+      link: "https://github.com/TobiasMaugus/ProjetoED",
+      technologies: ["C++"],
+    },
+    {
+      id: "2",
+      image: ImgGraph,
+      title: l.graphs,
+      description: l.graphsDesc,
+      link: "https://github.com/TobiasMaugus/Grafos2",
+      technologies: ["C++"],
+    },
+    {
+      id: "3",
+      image: ImgIalg,
+      title: l.uniIntroduction,
+      description: l.uniIntroductionDesc,
+      link: "https://github.com/TobiasMaugus/ProjetoFinalIALG",
+      technologies: ["Python"],
+    },
+    {
+      id: "4",
+      image: ImgMobile,
+      title: l.mobileApp,
+      description: l.mobileAppDesc,
+      link: "https://github.com/TobiasMaugus/mobile2022.git",
+      technologies: ["JavaScript", "HTML", "CSS"],
+    },
+    {
+      id: "5",
+      image: ImgLaravel,
+      title: l.laravel,
+      description: l.laravelDesc,
+      link: "https://github.com/TobiasMaugus/laravelzin.git",
+      technologies: ["Php", "HTML", "CSS", "JavaScript"],
+    },
+    {
+      id: "6",
+      image: ImgAnimes,
+      title: l.firstSite,
+      description: l.firstSiteDesc,
+      link: "https://reactweb1.vercel.app/",
+      technologies: ["JavaScript", "HTML", "CSS"],
+    },
+    {
+      id: "7",
+      image: ImgPython,
+      title: l.problems,
+      description: l.problemsDesc,
+      link: "https://github.com/TobiasMaugus/lp2",
+      technologies: ["Python"],
+    },
+  ];
+
   const handleTechChange = (label: string, isChecked: boolean) => {
     setCheckedTechs((prev) =>
       isChecked ? [...prev, label] : prev.filter((t) => t !== label)
     );
   };
+
+  // Filtra os projetos baseado nas tecnologias selecionadas
+  const filteredProjects = useMemo(() => {
+    if (checkedTechs.length === 0) {
+      return projects; // Mostra todos se nenhum filtro estiver selecionado
+    }
+
+    return projects.filter((project) =>
+      checkedTechs.some((tech) => project.technologies.includes(tech))
+    );
+  }, [checkedTechs, projects]);
+
   return (
     <div
       style={{
@@ -147,7 +228,7 @@ export default function BodyProjects() {
       </div>
       <div
         style={{
-          flex: 1, // ocupa o restante do espaço
+          flex: 1,
           padding: "20px",
           overflowY: "auto",
           display: "flex",
@@ -157,48 +238,26 @@ export default function BodyProjects() {
         }}
         className="scroll"
       >
-        <Card
-          image={ImgCpp}
-          title={l.dataStructures}
-          description={l.dataStructuresDesc}
-          link="https://github.com/TobiasMaugus/ProjetoED"
-        />
-        <Card
-          image={ImgGraph}
-          title={l.graphs}
-          description={l.graphsDesc}
-          link="https://github.com/TobiasMaugus/Grafos2"
-        />
-        <Card
-          image={ImgIalg}
-          title={l.uniIntroduction}
-          description={l.uniIntroductionDesc}
-          link="https://github.com/TobiasMaugus/ProjetoFinalIALG"
-        />
-        <Card
-          image={Imgmobile}
-          title={l.mobileApp}
-          description={l.mobileAppDesc}
-          link="https://github.com/TobiasMaugus/mobile2022.git"
-        />
-        <Card
-          image={ImgLaravel}
-          title={l.laravel}
-          description={l.laravelDesc}
-          link="https://github.com/TobiasMaugus/laravelzin.git"
-        />
-        <Card
-          image={ImgAnimes}
-          title={l.firstSite}
-          description={l.firstSiteDesc}
-          link="https://reactweb1.vercel.app/"
-        />
-        <Card
-          image={ImgPyhton}
-          title={l.problems}
-          description={l.problemsDesc}
-          link="https://github.com/TobiasMaugus/lp2"
-        />
+        {filteredProjects.length > 0 ? (
+          filteredProjects.map((project) => (
+            <Card
+              key={project.id}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+            />
+          ))
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              padding: "40px",
+              color: themeColors.cardText,
+            }}
+          ></div>
+        )}
       </div>
     </div>
   );
